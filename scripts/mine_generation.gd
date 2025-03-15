@@ -14,6 +14,7 @@ var dirt = Vector2i(0, 1)
 var stones = [Vector2i(8, 0), Vector2i(8, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(5, 1)] # Randomly chosen stone
 var diamond = Vector2i(6, 2)
 var air = Vector2i(3, 3)
+var border = Vector2i(1, 2)
 
 # Generation resources
 var rng : RandomNumberGenerator
@@ -38,6 +39,12 @@ func generate_mine():
 	for y in range(mine_h):
 		for x in range(mine_w):
 			var noiseValue : float = noise.get_noise_2d(x, y);
+			
+			# Generate mine border
+			if (x == 0 or x == mine_w-1):
+				tilemap.set_cell(0, Vector2(x, y), source_id, border)
+				continue
+			
 			# Generate grass layer
 			if (y == 0):
 				tilemap.set_cell(0, Vector2(x, y), source_id, grass)
