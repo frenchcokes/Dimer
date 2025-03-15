@@ -10,7 +10,7 @@ gradient = SubResource("Gradient_fgaav")
 fill_from = Vector2(0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmb2m"]
-radius = 49.0
+radius = 85.0235
 
 [node name="Shop" type="StaticBody2D"]
 script = ExtResource("1_e7rdd")
