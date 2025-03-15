@@ -35,7 +35,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	detect_interact()
-	check_interact()
+	#check_interact()
 
 var closest_area: Area2D = null
 var smallest_distance: float = -1
@@ -64,6 +64,6 @@ func detect_interact():
 		area_parent.add_child(interact_indicator)
 		interact_indicator.global_position = closest_area.global_position + Vector2(0, -10)
 
-func check_interact():
-	if(Input.is_action_just_pressed("select")):
-		print("Selected object: " + str(closest_area))
+#func check_interact():
+	#if(Input.is_action_just_pressed("select")):
+		#print("Selected object: " + str(closest_area))
