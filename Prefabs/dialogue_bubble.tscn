@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://db7dagur63dvx"]
+
+[ext_resource type="Script" uid="uid://bke3fj7xxw3fe" path="res://Scripts/DialogueBubble.gd" id="1_c42lm"]
+
+[node name="DialogueBubble" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 581.0
+offset_top = 137.0
+offset_right = 621.0
+offset_bottom = 177.0
+script = ExtResource("1_c42lm")
+
+[node name="NinePatchRect" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+autowrap_mode = 2
