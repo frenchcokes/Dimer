@@ -31,7 +31,6 @@ animation = &"test"
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 anchor_mode = 0
-zoom = Vector2(1.75, 1.75)
 
 [node name="InteractAreaSensor" type="Area2D" parent="Player"]
 
