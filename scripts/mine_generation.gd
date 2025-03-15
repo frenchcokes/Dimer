@@ -22,6 +22,7 @@ var rng : RandomNumberGenerator
 # Blocks
 var blocks = []
 
+var tilemap_scale = Vector2i(1, 1)
 
 func _ready():
 	# Generate rng
@@ -36,7 +37,7 @@ func _ready():
 	noise.seed = rng.randi()
 	noise_height_texture.noise = noise
 	
-	tilemap.scale = Vector2i(1, 1)
+	tilemap.scale = tilemap_scale
 	
 	generate_mine()
 
