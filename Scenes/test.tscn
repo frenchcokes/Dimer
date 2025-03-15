@@ -33,7 +33,7 @@ animation = &"test"
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-2, 0)
-zoom = Vector2(4, 4)
+zoom = Vector2(2.5, 2.5)
 
 [node name="InteractAreaSensor" type="Area2D" parent="Player"]
 
