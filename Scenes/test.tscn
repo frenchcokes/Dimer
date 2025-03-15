@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvhhgj26jk7wg"]
+
+[ext_resource type="Script" uid="uid://d1ctx63di7iy" path="res://Scripts/player.gd" id="1_8od7v"]
+[ext_resource type="SpriteFrames" uid="uid://cldcio51wkge" path="res://Assets/Animations/player_sprite_frames.tres" id="1_lc1oi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8od7v"]
+size = Vector2(120, 120)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8od7v"]
+radius = 150.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qc4db"]
+size = Vector2(1000, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qc4db"]
+radius = 50.0
+
+[node name="Test" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(581, 309)
+script = ExtResource("1_8od7v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_8od7v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = ExtResource("1_lc1oi")
+animation = &"test"
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-581, -309)
+anchor_mode = 0
+
+[node name="InteractAreaSensor" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/InteractAreaSensor"]
+shape = SubResource("CircleShape2D_8od7v")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(574, 583)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("RectangleShape2D_qc4db")
+
+[node name="ColorRect" type="ColorRect" parent="Floor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -10.0
+offset_right = 500.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InteractArea" type="Area2D" parent="."]
+position = Vector2(988, 430)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+shape = SubResource("CircleShape2D_qc4db")
+
+[node name="ColorRect" type="ColorRect" parent="InteractArea"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 1, 1)
+
+[node name="InteractArea2" type="Area2D" parent="."]
+position = Vector2(856, 428)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea2"]
+shape = SubResource("CircleShape2D_qc4db")
+
+[node name="ColorRect" type="ColorRect" parent="InteractArea2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 1, 1)
