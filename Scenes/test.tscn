@@ -32,8 +32,8 @@ sprite_frames = ExtResource("1_lc1oi")
 animation = &"test"
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(-581, -309)
-anchor_mode = 0
+position = Vector2(-2, 0)
+zoom = Vector2(4, 4)
 
 [node name="InteractAreaSensor" type="Area2D" parent="Player"]
 
