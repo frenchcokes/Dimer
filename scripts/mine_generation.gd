@@ -50,39 +50,39 @@ func generate_mine():
 			# Generate mine border
 			if (x == 0 or x == mine_w-1):
 				tilemap.set_cell(0, Vector2(x, y), source_id, border)
-				generate_breakable_block(x, y , "BORDER")
+				generate_breakable_block(x, y , BreakableBlock.bb_types.BORDER)
 				continue
 			
 			# Generate grass layer
 			if (y == 0):
 				tilemap.set_cell(0, Vector2(x, y), source_id, grass)
-				generate_breakable_block(x, y, "GRASS")
+				generate_breakable_block(x, y, BreakableBlock.bb_types.GRASS)
 				continue
 			
 			# Generate dirt layer
 			if (y < 5):
 				tilemap.set_cell(0, Vector2(x, y), source_id, dirt)
-				generate_breakable_block(x, y, "DIRT")
+				generate_breakable_block(x, y, BreakableBlock.bb_types.DIRT)
 				continue
 			
 			# Generate stone/dirt
 			if (abs(noiseValue) >= 0.2):
 				# Randomly pick between stone1 and stone2 to set.
 				tilemap.set_cell(0, Vector2(x, y), source_id, stones[rng.randi_range(0, 4)])
-				generate_breakable_block(x, y, "STONE")
+				generate_breakable_block(x, y, BreakableBlock.bb_types.STONE)
 			elif (noiseValue < 0.0):
 				tilemap.set_cell(0, Vector2(x, y))
 				continue
 			else:
 				tilemap.set_cell(0, Vector2(x, y), source_id, dirt)
-				generate_breakable_block(x, y, "DIRT")
+				generate_breakable_block(x, y, BreakableBlock.bb_types.DIRT)
 		
 			# Generate diamonds 
 			if (randi_range(1,10000000) >= 9999999):
 				tilemap.set_cell(0, Vector2(x, y), source_id, diamond)
-				generate_breakable_block(x, y, "DIAMOND")
+				generate_breakable_block(x, y, BreakableBlock.bb_types.DIAMOND)
 
-func generate_breakable_block(x : int, y : int, type: String):
+func generate_breakable_block(x : int, y : int, type: BreakableBlock.bb_types):
 	var block = preload("res://Scenes/breakable_block.tscn").instantiate()
 	block.set_block_type(type)
 	block.position = tilemap.map_to_local(Vector2i(x,y))

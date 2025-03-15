@@ -2,29 +2,29 @@ class_name BreakableBlock extends StaticBody2D
 
 @export var tilemap : TileMap
 @onready var collision_shape = $CollisionShape2D
+enum bb_types {BORDER, GRASS, DIRT, STONE, DIAMOND}
 
 var is_mouse_inside = false
 var is_indestructible = false
 
-var block_type: String = ""
+var block_type: bb_types
 var health = 0
 
-func set_block_type(the_block_type: String) -> void:
+func set_block_type(the_block_type: bb_types) -> void:
 	self.block_type = the_block_type
 	match(self.block_type):
 		"":
 			print("ERROR UNSET BLOCK TYPE.")
 			pass
-		"BORDER":
+		bb_types.BORDER:
 			is_indestructible = true
-		"GRASS":
+		bb_types.GRASS:
 			health = 50
-			pass
-		"DIRT":
+		bb_types.DIRT:
 			health = 100
-		"STONE":
+		bb_types.STONE:
 			health = 200
-		"DIAMOND":
+		bb_types.DIAMOND:
 			health = 400
 		_:
 			print("ERROR UNKNOWN BLOCK TYPE.")
@@ -43,6 +43,7 @@ func mine_block(damage: int):
 	self.health -= damage
 	print("Block hit, health: " + str(health))
 	if(self.health <= 0):
+		Globals.get_player().add_to_inventory(self.block_type)
 		break_block()
 
 func break_block():

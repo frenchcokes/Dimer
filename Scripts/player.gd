@@ -7,8 +7,8 @@ const interact_indicator_prefab: PackedScene = preload("../Prefabs/Interact_Indi
 @onready var animated_sprite_2d: AnimatedSprite2D = self.get_node("AnimatedSprite2D")
 @onready var interact_area_sensor: Area2D = self.get_node("InteractAreaSensor")
 @onready var mining_area_sensor: Area2D = self.get_node("MiningAreaSensor")
-
 @onready var mine_timer: Timer = self.get_node("Timer")
+
 var can_mine: bool = true
 var mine_cooldown_time: float = 0.3
 
@@ -16,10 +16,29 @@ var player_damage: int = 10
 var speed: int = 400
 var jump_speed: int = -600
 
+var inventory = {}
+
 func _ready() -> void:
 	mine_timer.timeout.connect(timer_cooldown_finished)
 	
 	Globals.set_player(self)
+
+func add_to_inventory(block_type: BreakableBlock.bb_types):
+	if(block_type not in inventory):
+		inventory[block_type] = 1
+	else:
+		inventory[block_type] += 1
+
+func reduce_from_inventory(block_type: BreakableBlock.bb_types):
+	if(block_type in inventory):
+		if(inventory[block_type] >= 1):
+			inventory[block_type] -= 1
+			
+func has_in_inventory(block_type: BreakableBlock.bb_types):
+	if(block_type in inventory):
+		if(inventory[block_type] > 0):
+			return true	
+	return false
 
 func tryMine() -> bool:
 	if(can_mine):

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c0uwk5nrbictv"]
 
 [ext_resource type="FontFile" uid="uid://chsxxfq8466m3" path="res://Assets/PapyrusPixelMono/papyrus-pixel-mono.otf" id="1_hkgi3"]
-[ext_resource type="Script" path="res://Scenes/interacting_component.gd" id="1_nsw6d"]
+[ext_resource type="Script" uid="uid://bpnan6b41h35o" path="res://Scenes/interacting_component.gd" id="1_nsw6d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3rmx8"]
 
