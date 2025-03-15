@@ -25,12 +25,13 @@ script = ExtResource("1_8od7v")
 shape = SubResource("RectangleShape2D_8od7v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+scale = Vector2(0.125, 0.125)
 sprite_frames = ExtResource("1_lc1oi")
 animation = &"test"
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(-581, -309)
 anchor_mode = 0
+zoom = Vector2(1.75, 1.75)
 
 [node name="InteractAreaSensor" type="Area2D" parent="Player"]
 

@@ -19,6 +19,9 @@ var border = Vector2i(1, 2)
 # Generation resources
 var rng : RandomNumberGenerator
 
+# Blocks
+var blocks = []
+
 
 func _ready():
 	# Generate rng
@@ -32,6 +35,9 @@ func _ready():
 	noise.frequency = 0.05
 	noise.seed = rng.randi()
 	noise_height_texture.noise = noise
+	
+	tilemap.scale = Vector2i(1, 1)
+	
 	generate_mine()
 
 
@@ -43,17 +49,19 @@ func generate_mine():
 			# Generate mine border
 			if (x == 0 or x == mine_w-1):
 				tilemap.set_cell(0, Vector2(x, y), source_id, border)
+				generate_breakable_block(x, y)
 				continue
 			
-			var collider = BreakableBlock.new(x, y)
 			# Generate grass layer
 			if (y == 0):
 				tilemap.set_cell(0, Vector2(x, y), source_id, grass)
+				generate_breakable_block(x, y)
 				continue
 			
 			# Generate dirt layer
 			if (y < 5):
 				tilemap.set_cell(0, Vector2(x, y), source_id, dirt)
+				generate_breakable_block(x, y)
 				continue
 			
 			# Generate stone/dirt
@@ -61,11 +69,21 @@ func generate_mine():
 				# Randomly pick between stone1 and stone2 to set.
 				tilemap.set_cell(0, Vector2(x, y), source_id, stones[rng.randi_range(0, 4)])
 			elif (noiseValue < 0.0):
-				tilemap.set_cell(0, Vector2(x, y), source_id, air)
+				tilemap.set_cell(0, Vector2(x, y))
+				continue
 			else:
 				tilemap.set_cell(0, Vector2(x, y), source_id, dirt)
-
+		
 			# Generate diamonds 
 			if (randi_range(1,10000000) >= 9999999):
 				tilemap.set_cell(0, Vector2(x, y), source_id, diamond)
+			
+			generate_breakable_block(x, y)
 				
+
+func generate_breakable_block(x : int, y : int):
+	var block = preload("res://Scenes/breakable_block.tscn").instantiate()
+	block.position = tilemap.map_to_local(Vector2i(x,y))
+	block.tilemap = tilemap
+	add_child(block)
+	blocks.append(block)
