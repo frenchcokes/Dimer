@@ -8,3 +8,6 @@ func _ready() -> void:
 
 func _on_interact():
 	print("Interacted with shop")
+	var shop_ui = preload("res://UI/shopmenu.tscn").instantiate()
+	get_tree().current_scene.add_child(shop_ui)
+	

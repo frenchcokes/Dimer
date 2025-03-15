@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bvhhgj26jk7wg" path="res://Scenes/test.tscn" id="1_ebmjs"]
 [ext_resource type="PackedScene" uid="uid://b7p4db3j0fh13" path="res://Scenes/mine.tscn" id="2_qxrlw"]
-[ext_resource type="PackedScene" uid="uid://b6i377y6ok05r" path="res://shop.tscn" id="3_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://b6i377y6ok05r" path="res://Scenes/shop.tscn" id="3_wrm1d"]
 
 [node name="Game" type="Node2D"]
 position = Vector2(0, 1)
