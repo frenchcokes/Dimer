@@ -15,6 +15,10 @@ run/main_scene="uid://cfw85hdprvh7s"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://Assets/icon.svg"
 
+[autoload]
+
+Globals="*res://Scripts/Globals.gd"
+
 [dotnet]
 
 project/assembly_name="Dimer"
