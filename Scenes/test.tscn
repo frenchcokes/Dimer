@@ -18,7 +18,7 @@ radius = 50.0
 [node name="Test" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(581, 309)
+position = Vector2(581, -100)
 script = ExtResource("1_8od7v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -38,7 +38,7 @@ anchor_mode = 0
 shape = SubResource("CircleShape2D_8od7v")
 
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(574, 583)
+position = Vector2(574, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 shape = SubResource("RectangleShape2D_qc4db")

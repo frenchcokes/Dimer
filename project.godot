@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dimer"
-run/main_scene="uid://bvhhgj26jk7wg"
+run/main_scene="uid://c142ugvlp1lbv"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://Assets/icon.svg"
 
