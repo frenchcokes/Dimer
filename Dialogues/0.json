@@ -1,0 +1,12 @@
+[
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "YO THIS IS A DIALOGUE TO TEST!!!!"
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "AINT NO WAY"
+	}
+]
