@@ -45,6 +45,7 @@ func generate_mine():
 				tilemap.set_cell(0, Vector2(x, y), source_id, border)
 				continue
 			
+			var collider = BreakableBlock.new(x, y)
 			# Generate grass layer
 			if (y == 0):
 				tilemap.set_cell(0, Vector2(x, y), source_id, grass)
