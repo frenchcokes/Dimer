@@ -6,6 +6,7 @@ extends CenterContainer
 @onready var player: Player
 
 var coin = ["heads", "tails"]
+var cost := 10
 
 var rng : RandomNumberGenerator
 
@@ -17,15 +18,28 @@ func _ready():
 	if not player:
 		print("Fatal: Failed to find a valid Player object <shopmenu>")
 		return
+	var placeholder = roll_button.text + " (" + str(cost) + " cash)"
+	roll_button.text = placeholder
 
 func _on_roll_button_pressed() -> void:
 	var input = line_edit.text
+	var placeholder = "Flip the coin" + " (" + str(cost) + " cash)"
+	roll_button.text = placeholder
+	
 	if not input or input.to_lower() not in coin:
 		line_edit.text = "Please enter in Heads or Tails"
 		await get_tree().create_timer(3).timeout
 		line_edit.clear()
 		return
-
+		
+	if player.get_player_money() < cost:
+		line_edit.text = "Not enough cash!"
+		await get_tree().create_timer(3).timeout
+		line_edit.clear()
+		return
+	else:
+		player.set_player_money(player.get_player_money() - cost)
+		
 	# Flip the coin
 	var value = rng.randi_range(0, 1)
 	multiplier_label.text = "Flipping.."
@@ -36,8 +50,11 @@ func _on_roll_button_pressed() -> void:
 	# Display result
 	if input.to_lower() != coin[value]:
 		multiplier_label.text = "You did not win your upgrade. In fact, you lost 1 mining speed!"
+		player.set_player_damage(-1)
 	else:
-		multiplier_label.text = "You increased your mining speed by 1!"
+		multiplier_label.text = "You increased your mining speed by 2!"
+		player.set_player_damage(2)
+		cost += 1
 	
 	await get_tree().create_timer(2).timeout
 	hide()
