@@ -35,7 +35,7 @@ func _on_roll_button_pressed() -> void:
 	
 	# Display result
 	if input.to_lower() != coin[value]:
-		multiplier_label.text = "You did not win your upgrade."
+		multiplier_label.text = "You did not win your upgrade. In fact, you lost 1 mining speed!"
 	else:
 		multiplier_label.text = "You increased your mining speed by 1!"
 	
