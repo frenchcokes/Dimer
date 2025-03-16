@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b4pv27mjhikk0"]
 
-[ext_resource type="Script" uid="uid://b8hjbqve5lnni" path="res://Scenes/BreakableBlock.gd" id="1_2cmiy"]
+[ext_resource type="Script" uid="uid://b8hjbqve5lnni" path="res://Scripts/BreakableBlock.gd" id="1_2cmiy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4qwv"]
 size = Vector2(16, 16)

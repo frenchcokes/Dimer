@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://c4t3i8uk020dq"]
+
+[ext_resource type="FontFile" uid="uid://bxwyacl03qmnv" path="res://Assets/Fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="1_n81x5"]
+
+[resource]
+font = ExtResource("1_n81x5")
+font_size = 32
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)

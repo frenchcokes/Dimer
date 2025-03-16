@@ -1,15 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2cc0xp8rxhcg"]
+[gd_scene load_steps=4 format=3 uid="uid://d2cc0xp8rxhcg"]
 
-[ext_resource type="FontFile" uid="uid://chsxxfq8466m3" path="res://Assets/Fonts/PapyrusPixelMono/papyrus-pixel-mono.otf" id="1_hkgi3"]
-[ext_resource type="Script" path="res://Scenes/interacting_component.gd" id="1_nsw6d"]
+[ext_resource type="Script" uid="uid://bpnan6b41h35o" path="res://Scripts/interacting_component.gd" id="1_nsw6d"]
+[ext_resource type="LabelSettings" uid="uid://d23a3bgmt1wu3" path="res://UI/interact.tres" id="2_nsw6d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3rmx8"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_0cdkf"]
-font = ExtResource("1_hkgi3")
-font_size = 12
-outline_size = 2
-outline_color = Color(0, 0, 0, 1)
 
 [node name="InteractingComponent" type="Node2D"]
 script = ExtResource("1_nsw6d")
@@ -27,15 +21,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -47.5
-offset_top = -50.0
-offset_right = 47.5
-offset_bottom = -27.0
+offset_left = -26.0
+offset_top = -33.0
+offset_right = 196.0
+offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.25, 0.25)
 size_flags_horizontal = 4
 text = "E to Interact"
-label_settings = SubResource("LabelSettings_0cdkf")
+label_settings = ExtResource("2_nsw6d")
 horizontal_alignment = 1
 vertical_alignment = 1
 

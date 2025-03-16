@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://lw45o05ehn41"]
+[gd_scene load_steps=2 format=3 uid="uid://lw45o05ehn41"]
+
+[ext_resource type="LabelSettings" uid="uid://c4t3i8uk020dq" path="res://UI/hud.tres" id="1_37p78"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -20,9 +22,11 @@ layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 3
 text = "Money: "
+label_settings = ExtResource("1_37p78")
 
 [node name="InventoryCounter" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 3
 text = "Inventory Value: "
+label_settings = ExtResource("1_37p78")
