@@ -4,7 +4,7 @@ extends Node
 @export var interlocutors: Array = []
 @export var dialogueRunning = false
 
-@onready var bubble = $DialogueBubble
+@onready var bubble = $DialoguedBubble
 @onready var skippable = true
 @onready var skipping = false
 

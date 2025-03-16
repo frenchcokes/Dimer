@@ -47,6 +47,10 @@ func _on_buy_button_pressed() -> void:
 		buy.show()
 	
 
+func _on_intro_button_pressed() -> void:
+	hide()
+	Globals.game_manager.evil_dealer_intro_sale()
+
 func _on_exit_button_pressed() -> void:
 	hide()
 	player.is_in_ui = false
