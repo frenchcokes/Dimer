@@ -6,7 +6,7 @@ var day_timer: Timer
 var day_duration: float = 10
 var game_state = 0
 
-signal timer_display(time: int)
+signal timer_display(display_string: String)
 
 func _ready() -> void:
 	day_timer = Timer.new()
@@ -29,6 +29,9 @@ func _process(_delta: float) -> void:
 		emit_signal("timer_display", "Night Time")
 	else:
 		emit_signal("timer_display", "Time Left: " + str(int(round(day_timer.time_left))))
+	
+	if(Input.is_action_just_pressed("exit")):
+		get_tree().quit()
 
 func start_day_timer():
 	day_timer.start(day_duration)
