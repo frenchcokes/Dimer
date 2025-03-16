@@ -7,6 +7,8 @@ var day_timer: Timer
 var day_duration: float = 10
 var game_state = 0
 
+signal timer_display(display_string: String)
+
 func _ready() -> void:
 	day_timer = Timer.new()
 	self.add_child(day_timer)

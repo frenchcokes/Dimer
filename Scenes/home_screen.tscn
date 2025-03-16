@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bc7vyv7okqjd8"]
 
 [ext_resource type="Theme" uid="uid://b4ojxa28nkfgw" path="res://UI/shopmenu_theme.tres" id="1_xof06"]
-[ext_resource type="Script" uid="uid://ct0f5bblfgl6b" path="res://Scripts/HomeScreenManager.gd" id="2_d6d8u"]
+[ext_resource type="Script" path="res://Scripts/HomeScreenManager.gd" id="2_d6d8u"]
 [ext_resource type="Texture2D" uid="uid://bmriianlrmddv" path="res://Assets/scene.png" id="3_db1cy"]
 
 [node name="HomeScreen" type="Control"]
