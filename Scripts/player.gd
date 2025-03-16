@@ -15,13 +15,14 @@ var player_damage: int = 10
 var speed: int = 200
 var jump_speed: int = -250
 var money: float = 0.0
+var maxMinedDepth: int = 0
 
 var inventory = {}
 var inventoryValue: int = 0
 
 var is_in_ui := false
 
-signal stats_updated(money, inventoryValue, player_damage)
+signal stats_updated(money, inventoryValue, player_damage, maxMinedDepth)
 
 func _ready() -> void:
 	mine_timer.timeout.connect(timer_cooldown_finished)
@@ -36,7 +37,7 @@ func add_to_inventory(block_type: BreakableBlock.bb_types):
 	var block = BreakableBlock.new()
 	block.set_block_type(block_type)
 	inventoryValue += block.get_value()
-	emit_signal("stats_updated", money, inventoryValue, player_damage)
+	emit_signal("stats_updated", money, inventoryValue, player_damage, maxMinedDepth)
 	
 
 func reduce_from_inventory(block_type: BreakableBlock.bb_types):
@@ -46,7 +47,7 @@ func reduce_from_inventory(block_type: BreakableBlock.bb_types):
 	var block = BreakableBlock.new()
 	block.set_block_type(block_type)
 	inventoryValue -= block.get_value()
-	emit_signal("stats_updated", money, inventoryValue, player_damage)
+	emit_signal("stats_updated", money, inventoryValue, player_damage, maxMinedDepth)
 			
 func has_in_inventory(block_type: BreakableBlock.bb_types):
 	if(block_type in inventory):
@@ -58,7 +59,6 @@ func tryMine() -> bool:
 	if(can_mine):
 		can_mine = false
 		mine_timer.start(mine_cooldown_time)
-		print("Success!")
 		return true
 	else:
 		return false
@@ -81,12 +81,18 @@ func _physics_process(delta):
 	
 	if(leftPressed and rightPressed):
 		velocity.x = 0
+		animated_sprite_2d.play("default")
 	elif(leftPressed):
 		velocity.x = -1 * speed
+		animated_sprite_2d.flip_h = true
+		animated_sprite_2d.play("walk")
 	elif(rightPressed):
 		velocity.x = 1 * speed
+		animated_sprite_2d.flip_h = false
+		animated_sprite_2d.play("walk")
 	else:
 		velocity.x = 0
+		animated_sprite_2d.play("default")
 
 	move_and_slide()
 	
@@ -150,7 +156,7 @@ func set_player_money(money: float) -> void:
 func clear_player_inventory() -> void:
 	self.inventory.clear()
 	self.inventoryValue = 0.0
-	emit_signal("stats_updated", money, inventoryValue, player_damage)
+	emit_signal("stats_updated", money, inventoryValue, player_damage, maxMinedDepth)
 	
 
 func get_player_money() -> int:
@@ -159,3 +165,9 @@ func get_player_money() -> int:
 func get_player_inventory_value() -> int:
 	return self.inventoryValue
 	
+func set_player_maxMinedDepth(depth: int) -> void:
+	if maxMinedDepth < depth:
+		maxMinedDepth = depth
+	emit_signal("stats_updated", money, inventoryValue, player_damage, maxMinedDepth)
+	return
+		

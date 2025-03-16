@@ -47,7 +47,7 @@ func generate_mine():
 		for x in range(mine_w):
 			var noiseValue : float = noise.get_noise_2d(x, y);
 			# Generate mine border
-			if (x == 0 or x == mine_w-1):
+			if (x == 0 or x == mine_w-1 or y == mine_h-1):
 				tilemap.set_cell(0, Vector2(x, y), source_id, border)
 				generate_breakable_block(x, y , BreakableBlock.bb_types.BORDER)
 				continue

@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://cfw85hdprvh7s"]
+[gd_scene load_steps=12 format=3 uid="uid://cfw85hdprvh7s"]
 
 [ext_resource type="Script" uid="uid://cj24tq7it5ujr" path="res://Scripts/GameManager.gd" id="1_3dryh"]
-[ext_resource type="PackedScene" uid="uid://b7p4db3j0fh13" path="res://scenes/mine.tscn" id="2_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://b7p4db3j0fh13" path="res://Scenes/mine.tscn" id="2_qxrlw"]
+[ext_resource type="Texture2D" uid="uid://bmriianlrmddv" path="res://Assets/scene.png" id="2_v158k"]
 [ext_resource type="PackedScene" uid="uid://c7ni720nqbgk8" path="res://Scenes/shop.tscn" id="3_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://blfd4htad5scq" path="res://Prefabs/player.tscn" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://lw45o05ehn41" path="res://UI/hud.tscn" id="4_wowpa"]
 [ext_resource type="PackedScene" uid="uid://xer0ddy870ft" path="res://Prefabs/interact_point.tscn" id="5_1l0tm"]
+[ext_resource type="Texture2D" uid="uid://c8818mxarxa2r" path="res://Assets/grass block.png" id="6_h4fw4"]
 [ext_resource type="PackedScene" uid="uid://cws0icflqouoa" path="res://Scenes/housetilemap.tscn" id="6_housetilemap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wowpa"]
@@ -17,14 +19,60 @@ size = Vector2(20, 300)
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3dryh")
 
+[node name="Backdrop" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Backdrop"]
+offset_left = -1564.0
+offset_top = -1006.0
+offset_right = 2436.0
+offset_bottom = 1494.0
+mouse_filter = 2
+color = Color(0.4, 0.54902, 1, 1)
+
+[node name="Scene8" type="Sprite2D" parent="Backdrop"]
+position = Vector2(-168, 793)
+texture = ExtResource("2_v158k")
+
+[node name="Scene9" type="Sprite2D" parent="Backdrop"]
+position = Vector2(853, 793)
+texture = ExtResource("2_v158k")
+
+[node name="Scene6" type="Sprite2D" parent="Backdrop"]
+position = Vector2(-177, 470)
+texture = ExtResource("2_v158k")
+
+[node name="Scene7" type="Sprite2D" parent="Backdrop"]
+position = Vector2(835, 469)
+texture = ExtResource("2_v158k")
+
+[node name="Scene5" type="Sprite2D" parent="Backdrop"]
+position = Vector2(-175, 145)
+texture = ExtResource("2_v158k")
+
+[node name="Scene4" type="Sprite2D" parent="Backdrop"]
+position = Vector2(845, 145)
+texture = ExtResource("2_v158k")
+
+[node name="Scene2" type="Sprite2D" parent="Backdrop"]
+position = Vector2(-695, -174)
+texture = ExtResource("2_v158k")
+
+[node name="Scene" type="Sprite2D" parent="Backdrop"]
+position = Vector2(281, -174)
+texture = ExtResource("2_v158k")
+
+[node name="Scene3" type="Sprite2D" parent="Backdrop"]
+position = Vector2(1263, -174)
+texture = ExtResource("2_v158k")
+
 [node name="Player" parent="." instance=ExtResource("4_3dryh")]
 z_index = 1
-position = Vector2(0, -30)
+position = Vector2(192, -30)
 
 [node name="Mine" parent="." instance=ExtResource("2_qxrlw")]
 
 [node name="Shop" parent="." instance=ExtResource("3_wrm1d")]
-position = Vector2(-144, -37)
+position = Vector2(-145, -49)
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(-500, 10)
@@ -45,6 +93,90 @@ offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="HFlowContainer" type="HFlowContainer" parent="Floor"]
+layout_direction = 2
+offset_left = -108.0
+offset_top = -10.0
+offset_right = 892.0
+offset_bottom = 94.0
+theme_override_constants/h_separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Floor/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect2" type="TextureRect" parent="Floor/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect3" type="TextureRect" parent="Floor/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect4" type="TextureRect" parent="Floor/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect5" type="TextureRect" parent="Floor/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect6" type="TextureRect" parent="Floor/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect7" type="TextureRect" parent="Floor/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect8" type="TextureRect" parent="Floor/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect9" type="TextureRect" parent="Floor/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect10" type="TextureRect" parent="Floor/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect11" type="TextureRect" parent="Floor/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect12" type="TextureRect" parent="Floor/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect13" type="TextureRect" parent="Floor/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect14" type="TextureRect" parent="Floor/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect15" type="TextureRect" parent="Floor/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect16" type="TextureRect" parent="Floor/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect17" type="TextureRect" parent="Floor/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect18" type="TextureRect" parent="Floor/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect19" type="TextureRect" parent="Floor/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
 [node name="Floor2" type="StaticBody2D" parent="."]
 position = Vector2(1138, 10)
 
@@ -63,6 +195,118 @@ offset_right = 500.0
 offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Floor2"]
+layout_direction = 2
+offset_left = -500.0
+offset_top = -10.0
+offset_right = 500.0
+offset_bottom = 94.0
+theme_override_constants/h_separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect2" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect3" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect4" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect5" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect6" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect7" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect8" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect9" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect10" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect11" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect12" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect13" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect14" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect15" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect16" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect17" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect18" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect19" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect20" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect21" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect22" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect23" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect24" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect25" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect26" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
 
 [node name="NightTimeSpawnPoint" type="Node2D" parent="."]
 position = Vector2(898, -29)
