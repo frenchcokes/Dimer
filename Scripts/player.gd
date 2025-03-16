@@ -107,6 +107,7 @@ func _physics_process(delta):
 	
 	var escPressed: bool = Input.is_action_just_pressed("pause")
 	if (escPressed):
+		is_in_ui = true
 		Globals.display_pause_menu()
 	
 	if(leftPressed and rightPressed):

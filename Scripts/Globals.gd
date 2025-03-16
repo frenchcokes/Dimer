@@ -35,5 +35,4 @@ func display_pause_menu():
 		pause_menu_instance = pause_menu.instantiate()
 		canvas_layer.add_child(pause_menu_instance)
 	else:
-		pause_menu_instance.queue_free()
-		pause_menu_instance = null
+		pause_menu_instance.show()
