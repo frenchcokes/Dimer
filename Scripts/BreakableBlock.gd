@@ -35,6 +35,9 @@ func set_block_type(the_block_type: bb_types) -> void:
 			
 func get_block_type() -> bb_types:
 	return self.block_type
+	
+func get_value() -> int:
+	return self.value
 
 func _ready():
 	if not tilemap:

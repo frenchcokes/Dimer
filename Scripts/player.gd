@@ -14,10 +14,14 @@ var mine_cooldown_time: float = 0.3
 var player_damage: int = 10
 var speed: int = 400
 var jump_speed: int = -600
+var money: int = 0
 
 var inventory = {}
+var inventoryValue: int = 0
 
 var is_in_ui := false
+
+signal stats_updated(money, inventoryValue, player_damage)
 
 func _ready() -> void:
 	mine_timer.timeout.connect(timer_cooldown_finished)
@@ -29,19 +33,29 @@ func add_to_inventory(block_type: BreakableBlock.bb_types):
 		inventory[block_type] = 1
 	else:
 		inventory[block_type] += 1
+	var block = BreakableBlock.new()
+	block.set_block_type(block_type)
+	inventoryValue += block.get_value()
+	emit_signal("stats_updated", money, inventoryValue, player_damage)
+	
 
 func reduce_from_inventory(block_type: BreakableBlock.bb_types):
 	if(block_type in inventory):
 		if(inventory[block_type] >= 1):
 			inventory[block_type] -= 1
+	var block = BreakableBlock.new()
+	block.set_block_type(block_type)
+	inventoryValue -= block.get_value()
+	emit_signal("stats_updated", money, inventoryValue, player_damage)
 			
 func has_in_inventory(block_type: BreakableBlock.bb_types):
 	if(block_type in inventory):
 		if(inventory[block_type] > 0):
-			return true	
+			return true
 	return false
 
 func tryMine() -> bool:
+	print("tryMine() called")
 	if(can_mine):
 		can_mine = false
 		mine_timer.start(mine_cooldown_time)
@@ -121,3 +135,10 @@ func get_player_damage() -> int:
 	
 func set_player_damage(damageIncrement: int) -> void:
 	self.player_damage += damageIncrement
+	emit_signal("stats_updated", money, inventoryValue, player_damage)
+	
+func set_player_money(money: int) -> void:
+	self.money = money
+	emit_signal("stats_updated", money, inventoryValue, player_damage)
+	
+	
