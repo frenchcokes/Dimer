@@ -154,6 +154,107 @@ offset_right = 892.0
 offset_bottom = 94.0
 theme_override_constants/h_separation = 0
 
+[node name="TextureRect20" type="TextureRect" parent="Floor/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect21" type="TextureRect" parent="Floor/HFlowContainer/TextureRect20"]
+layout_mode = 2
+offset_left = -32.0
+offset_bottom = 32.0
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect22" type="TextureRect" parent="Floor/HFlowContainer/TextureRect20"]
+layout_mode = 2
+offset_left = -64.0
+offset_right = -32.0
+offset_bottom = 32.0
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect23" type="TextureRect" parent="Floor/HFlowContainer/TextureRect20"]
+layout_mode = 2
+offset_left = -96.0
+offset_right = -64.0
+offset_bottom = 32.0
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect24" type="TextureRect" parent="Floor/HFlowContainer/TextureRect20"]
+layout_mode = 2
+offset_left = -128.0
+offset_right = -96.0
+offset_bottom = 32.0
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect25" type="TextureRect" parent="Floor/HFlowContainer/TextureRect20"]
+layout_mode = 2
+offset_left = -159.0
+offset_right = -127.0
+offset_bottom = 32.0
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect26" type="TextureRect" parent="Floor/HFlowContainer/TextureRect20"]
+layout_mode = 2
+offset_left = -191.0
+offset_right = -159.0
+offset_bottom = 32.0
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect27" type="TextureRect" parent="Floor/HFlowContainer/TextureRect20"]
+layout_mode = 2
+offset_left = -223.0
+offset_right = -191.0
+offset_bottom = 32.0
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect28" type="TextureRect" parent="Floor/HFlowContainer/TextureRect20"]
+layout_mode = 2
+offset_left = -255.0
+offset_right = -223.0
+offset_bottom = 32.0
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect29" type="TextureRect" parent="Floor/HFlowContainer/TextureRect20"]
+layout_mode = 2
+offset_left = -287.0
+offset_right = -255.0
+offset_bottom = 32.0
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect30" type="TextureRect" parent="Floor/HFlowContainer/TextureRect20"]
+layout_mode = 2
+offset_left = -319.0
+offset_right = -287.0
+offset_bottom = 32.0
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect31" type="TextureRect" parent="Floor/HFlowContainer/TextureRect20"]
+layout_mode = 2
+offset_left = -351.0
+offset_right = -319.0
+offset_bottom = 32.0
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect32" type="TextureRect" parent="Floor/HFlowContainer/TextureRect20"]
+layout_mode = 2
+offset_left = -383.0
+offset_right = -351.0
+offset_bottom = 32.0
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect33" type="TextureRect" parent="Floor/HFlowContainer/TextureRect20"]
+layout_mode = 2
+offset_left = -415.0
+offset_right = -383.0
+offset_bottom = 32.0
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect34" type="TextureRect" parent="Floor/HFlowContainer/TextureRect20"]
+layout_mode = 2
+offset_left = -415.0
+offset_right = -383.0
+offset_bottom = 32.0
+texture = ExtResource("6_h4fw4")
+
 [node name="TextureRect" type="TextureRect" parent="Floor/HFlowContainer"]
 layout_mode = 2
 texture = ExtResource("6_h4fw4")
@@ -358,6 +459,26 @@ layout_mode = 2
 texture = ExtResource("6_h4fw4")
 
 [node name="TextureRect26" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect27" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect28" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect29" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect30" type="TextureRect" parent="Floor2/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("6_h4fw4")
+
+[node name="TextureRect31" type="TextureRect" parent="Floor2/HFlowContainer"]
 layout_mode = 2
 texture = ExtResource("6_h4fw4")
 
