@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://drsd12f58dont"]
 
 [ext_resource type="Theme" uid="uid://b4ojxa28nkfgw" path="res://UI/shopmenu_theme.tres" id="1_kwe02"]
-[ext_resource type="Script" uid="uid://c13w7ip0g602f" path="res://UI/shopmenu.gd" id="1_louqp"]
+[ext_resource type="Script" path="res://UI/shopmenu.gd" id="1_louqp"]
 
 [node name="ShopMenu" type="CenterContainer"]
 anchors_preset = 15
