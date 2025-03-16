@@ -2,11 +2,11 @@ extends Node
 
 @export var conversationNumber: int = 0
 @export var interlocutors: Array = []
+@export var dialogueRunning = false
 
 @onready var bubble = $DialogueBubble
 @onready var skippable = true
 @onready var skipping = false
-@onready var dialogueRunning = false
 
 #func _ready():
 	#var conversationNumber: int = 0
@@ -56,7 +56,6 @@ func executeDialogues(data: Array, interlocutors: Array):
 			await get_tree().process_frame
 		bubble_instance.queue_free()
 		skippable = false
-	dialogueRunning = false
 	
 func _input(event):
 	if skippable and (event is InputEventKey) and event.is_pressed():
@@ -71,4 +70,5 @@ func startConversation():
 	if not dialogueRunning:
 		dialogueRunning = true
 		var json = readJsonFile(conversationNumber)
-		executeDialogues(json, interlocutors)
+		await executeDialogues(json, interlocutors)
+		dialogueRunning = false
