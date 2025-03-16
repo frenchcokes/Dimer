@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://drsd12f58dont"]
+
+[ext_resource type="Theme" uid="uid://b4ojxa28nkfgw" path="res://UI/shopmenu_theme.tres" id="1_kwe02"]
+[ext_resource type="Script" path="res://UI/shopmenu.gd" id="1_louqp"]
+
+[node name="ShopMenu" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_louqp")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme = ExtResource("1_kwe02")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme = ExtResource("1_kwe02")
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_kwe02")
+text = "Shop"
+horizontal_alignment = 1
+
+[node name="SellButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_kwe02")
+theme_type_variation = &"SellItemsButton"
+text = "Sell items"
+
+[node name="BuyButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Buy items"
+
+[node name="ExitButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/SellButton" to="." method="_on_sell_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
