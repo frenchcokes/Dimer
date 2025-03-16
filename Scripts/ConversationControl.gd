@@ -9,6 +9,9 @@ func _ready():
 	var interlocutors: Array[Node] = []
 	
 	var player = get_node("../Player")
+	while (player == null):
+		await get_tree().process_frame
+		player = get_node("../Player")
 	interlocutors.append(player)
 	
 	var json = readJsonFile(0)
@@ -37,6 +40,7 @@ func executeDialogues(data: Array, interlocutors: Array[Node]):
 		print(bubble_instance.txt)
 		var interlocutor_number = data[i]["interlocutor"]
 		bubble_instance.interlocutor = interlocutors[interlocutor_number]
+		assert(bubble_instance.interlocutor != null, "The interlocutor failed to load.")
 		add_child(bubble_instance)
 		
 		while (not skipping or not skippable):

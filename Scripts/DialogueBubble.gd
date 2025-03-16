@@ -1,7 +1,7 @@
 extends Control
 
-@export var padding: int = 20
-@export var distance_to_talker: int = 100
+@export var padding: int = 5
+@export var distance_to_talker: int = 50
 @export var txt: String
 @export var max_width = 400
 @export var interlocutor: Node
@@ -39,5 +39,6 @@ func _process(delta):
 
 func _ready():
 	label.autowrap_mode = false
+	
 	is_ready = true
 	typewriter(txt)
