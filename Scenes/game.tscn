@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhdi04pbmufw0"]
+[gd_scene load_steps=12 format=3 uid="uid://bhdi04pbmufw0"]
 
 [ext_resource type="Script" uid="uid://cj24tq7it5ujr" path="res://Scripts/GameManager.gd" id="1_3dryh"]
 [ext_resource type="Script" uid="uid://dewrvig8agnb6" path="res://Scenes/color_rect.gd" id="2_h4fw4"]
 [ext_resource type="PackedScene" uid="uid://b7p4db3j0fh13" path="res://Scenes/mine.tscn" id="2_qxrlw"]
+[ext_resource type="Texture2D" uid="uid://bmriianlrmddv" path="res://Assets/scene.png" id="2_v158k"]
 [ext_resource type="PackedScene" uid="uid://c7ni720nqbgk8" path="res://Scenes/shop.tscn" id="3_wrm1d"]
 [ext_resource type="PackedScene" path="res://Prefabs/player.tscn" id="4_3dryh"]
 [ext_resource type="PackedScene" path="res://UI/hud.tscn" id="4_wowpa"]
@@ -30,10 +31,11 @@ grow_vertical = 2
 script = ExtResource("2_h4fw4")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(300, -1600)
 motion_mirroring = Vector2(1024, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(300, -160)
+texture = ExtResource("2_v158k")
 
 [node name="Player" parent="." instance=ExtResource("4_3dryh")]
 z_index = 1
