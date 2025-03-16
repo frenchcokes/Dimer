@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://b6i377y6ok05r" path="res://Scenes/shop.tscn" id="3_wrm1d"]
 
 [node name="Game" type="Node2D"]
-position = Vector2(0, 1)
 
 [node name="Test" parent="." instance=ExtResource("1_ebmjs")]
 
