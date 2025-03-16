@@ -2,7 +2,6 @@ class_name BreakableBlock extends StaticBody2D
 
 @export var tilemap : TileMap
 @onready var collision_shape = $CollisionShape2D
-@onready var particle_emit_preload = preload("res://Scenes/Particles/mine_particles.tscn")
 enum bb_types {BORDER, GRASS, DIRT, STONE, DIAMOND}
 
 var is_mouse_inside = false
@@ -50,11 +49,6 @@ func _process(_delta: float) -> void:
 func mine_block(damage: int):
 	self.health -= damage
 	print("Block hit, health: " + str(health))
-
-	var particle_spawn = particle_emit_preload.instantiate()
-	get_parent().add_child(particle_spawn)
-	particle_spawn.global_position = self.global_position
-	
 	if(self.health <= 0):
 		Globals.get_player().add_to_inventory(self.block_type)
 		break_block()
