@@ -70,7 +70,33 @@ func tryMine() -> bool:
 func timer_cooldown_finished():
 	can_mine = true
 
-func _physics_process(delta):
+func _physics_process(delta):	
+	var grassWalkingSound = load("res://Assets/Audio/player_walking.mp3")
+	var woodWalkingSound = [
+		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_wood_000.ogg"),
+		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_wood_001.ogg"),
+		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_wood_002.ogg"),
+		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_wood_003.ogg"),
+		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_wood_004.ogg")
+	]
+	
+	# It sounds like mining lol
+	var miningStoneSounds = [
+		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_concrete_000.ogg"),
+		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_concrete_001.ogg"),
+		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_concrete_002.ogg"),
+		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_concrete_003.ogg"),
+		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_concrete_004.ogg")
+	]
+	var miningGrassDirtSounds = [
+		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_grass_000.ogg"),
+		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_grass_001.ogg"),
+		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_grass_002.ogg"),
+		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_grass_003.ogg")
+	]
+	
+	var currentWalkingStream = grassWalkingSound
+	
 	if is_in_ui:
 		return
 		
@@ -92,12 +118,12 @@ func _physics_process(delta):
 		velocity.x = -1 * speed
 		animated_sprite_2d.flip_h = true
 		animated_sprite_2d.play("walk")
-		play_walking_audio()
+		play_walking_audio(currentWalkingStream)
 	elif(rightPressed):
 		velocity.x = 1 * speed
 		animated_sprite_2d.flip_h = false
 		animated_sprite_2d.play("walk")
-		play_walking_audio()
+		play_walking_audio(currentWalkingStream)
 	else:
 		velocity.x = 0
 		animated_sprite_2d.play("default")
@@ -108,9 +134,10 @@ func _physics_process(delta):
 	detect_interact()
 	check_interact()
 
-func play_walking_audio():
+func play_walking_audio(stream):
 	if is_on_floor():
 		if !walkingAudio.playing:
+			walkingAudio.stream = stream
 			walkingAudio.play()
 
 var closest_area: Area2D = null
