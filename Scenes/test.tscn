@@ -52,7 +52,6 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/MiningAreaSensor"]
-position = Vector2(-147, 27)
 shape = SubResource("CircleShape2D_ys1qc")
 
 [node name="Timer" type="Timer" parent="Player"]

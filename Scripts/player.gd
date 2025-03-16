@@ -55,7 +55,6 @@ func has_in_inventory(block_type: BreakableBlock.bb_types):
 	return false
 
 func tryMine() -> bool:
-	print("tryMine() called")
 	if(can_mine):
 		can_mine = false
 		mine_timer.start(mine_cooldown_time)

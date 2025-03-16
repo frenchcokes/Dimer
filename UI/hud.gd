@@ -11,7 +11,8 @@ func _ready() -> void:
 	player.connect("stats_updated", Callable(self, "_on_stats_updated"))
 	
 
-func _on_stats_updated(health, mana, stamina):
-	money_counter.text = str(health)
-	inventory_counter.text = str(mana)
-	mining_speed.text = str(stamina)
+func _on_stats_updated(money, inventoryValue, player_damage):
+	if money and inventoryValue and player_damage:
+		money_counter.text = "Money: " + str(money)
+		inventory_counter.text = "Inventory Value: " + str(inventoryValue)
+		mining_speed.text = "Mining Speed: " + str(player_damage) 
