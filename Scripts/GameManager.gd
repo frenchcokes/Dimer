@@ -133,7 +133,7 @@ func start_mine():
 	Globals.get_player().global_position = Vector2(0, -30)
 
 func evil_dealer_conversation():
-	get_node("ConversationControl").conversationNumber = 0
+	get_node("ConversationControl").conversationNumber = 666
 	get_node("ConversationControl").interlocutors = [get_node("EvilDealer")]
 	await get_node("ConversationControl").startConversation()
 	while get_node("ConversationControl").dialogueRunning:
@@ -145,6 +145,6 @@ func evil_dealer_conversation():
 	add_child(shop_instance)
 
 func evil_dealer_intro_sale():
-	get_node("ConversationControl").conversationNumber = 0
+	get_node("ConversationControl").conversationNumber = 667
 	get_node("ConversationControl").interlocutors = [shop_instance]
 	await get_node("ConversationControl").startConversation()
