@@ -35,14 +35,19 @@ func readJsonFile(number: int):
 func executeDialogues(data: Array, interlocutors: Array[Node]):
 	var bubble_idea = preload("res://Prefabs/dialogue_bubble.tscn")
 	for i in range(len(data)):
+		var completed_dialogue: bool = false
 		var bubble_instance = bubble_idea.instantiate()
 		bubble_instance.txt = data[i]["text"]
-		print(bubble_instance.txt)
 		var interlocutor_number = data[i]["interlocutor"]
+		var type = data[i]["type"]
+		
 		bubble_instance.interlocutor = interlocutors[interlocutor_number]
-		assert(bubble_instance.interlocutor != null, "The interlocutor failed to load.")
 		add_child(bubble_instance)
 		
+		while (not skipping or not skippable):
+			await get_tree().process_frame
+		bubble_instance.cancel_typing = true
+		skippable = false
 		while (not skipping or not skippable):
 			await get_tree().process_frame
 		bubble_instance.queue_free()
