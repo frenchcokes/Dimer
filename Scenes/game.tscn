@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cfw85hdprvh7s"]
+[gd_scene load_steps=18 format=3 uid="uid://cfw85hdprvh7s"]
 
 [ext_resource type="Script" uid="uid://cj24tq7it5ujr" path="res://Scripts/GameManager.gd" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://b7p4db3j0fh13" path="res://Scenes/mine.tscn" id="2_qxrlw"]
@@ -10,12 +10,19 @@
 [ext_resource type="PackedScene" uid="uid://cws0icflqouoa" path="res://Scenes/housetilemap.tscn" id="6_housetilemap"]
 [ext_resource type="PackedScene" uid="uid://l6l308tp7wes" path="res://Prefabs/evil_dealer.tscn" id="10_o5yvi"]
 [ext_resource type="PackedScene" uid="uid://duenio7lru6gj" path="res://Prefabs/conversation_control.tscn" id="11_rku1e"]
+[ext_resource type="Script" uid="uid://bjtp3akdkx4cx" path="res://Scripts/Interactable2.gd" id="12_nb51f"]
+[ext_resource type="Texture2D" uid="uid://dbrbrrvsp8142" path="res://Assets/wife.png" id="12_rku1e"]
+[ext_resource type="Texture2D" uid="uid://76pip8v43gb8" path="res://Assets/son.png" id="13_1phco"]
+[ext_resource type="Texture2D" uid="uid://btdo88yidd67k" path="res://Assets/daughter.png" id="14_nb51f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wowpa"]
 size = Vector2(1000, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3dryh"]
 size = Vector2(20, 300)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o5yvi"]
+radius = 40.0
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3dryh")
@@ -307,7 +314,7 @@ layout_mode = 2
 texture = ExtResource("6_h4fw4")
 
 [node name="NightTimeSpawnPoint" type="Node2D" parent="."]
-position = Vector2(898, -29)
+position = Vector2(781, -23)
 
 [node name="Wall3" type="StaticBody2D" parent="."]
 position = Vector2(-278, -150)
@@ -328,7 +335,7 @@ position = Vector2(648, -150)
 shape = SubResource("RectangleShape2D_3dryh")
 
 [node name="MineStartInteract" parent="." instance=ExtResource("5_1l0tm")]
-position = Vector2(930, -20)
+position = Vector2(696, -20)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -343,3 +350,36 @@ layer_0/tile_data = PackedInt32Array(-65496, 131073, 9, -327641, 131073, 7, -262
 position = Vector2(8, -28)
 
 [node name="ConversationControl" parent="." instance=ExtResource("11_rku1e")]
+
+[node name="Wife" type="Area2D" parent="."]
+position = Vector2(1065, -25)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("12_nb51f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wife"]
+shape = SubResource("CircleShape2D_o5yvi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Wife"]
+texture = ExtResource("12_rku1e")
+
+[node name="Son" type="Area2D" parent="."]
+position = Vector2(956, -23)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("12_nb51f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Son"]
+shape = SubResource("CircleShape2D_o5yvi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Son"]
+texture = ExtResource("13_1phco")
+
+[node name="Daughter" type="Area2D" parent="."]
+position = Vector2(897, -24)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("12_nb51f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Daughter"]
+shape = SubResource("CircleShape2D_o5yvi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Daughter"]
+texture = ExtResource("14_nb51f")

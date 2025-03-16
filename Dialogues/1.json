@@ -1,0 +1,12 @@
+[
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "Welcome home honey!"
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "I hope you had a good day at work."
+	}
+]
