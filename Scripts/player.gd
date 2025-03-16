@@ -146,5 +146,10 @@ func set_player_damage(damageIncrement: int) -> void:
 func set_player_money(money: int) -> void:
 	self.money = money
 	emit_signal("stats_updated", money, inventoryValue, player_damage)
+
+func get_player_money() -> int:
+	return self.money
 	
+func get_player_inventory_value() -> int:
+	return self.inventoryValue
 	
