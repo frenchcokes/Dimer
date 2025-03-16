@@ -4,6 +4,7 @@ extends CenterContainer
 @onready var roll_button: Button = $PanelContainer/VBoxContainer/RollButton
 @onready var line_edit: LineEdit = $PanelContainer/VBoxContainer/LineEdit
 @onready var player: Player
+@onready var exit_button: Button = $PanelContainer/VBoxContainer/ExitButton
 
 var coin = ["heads", "tails"]
 var cost := 10
@@ -22,13 +23,18 @@ func _ready():
 	roll_button.text = placeholder
 
 func _on_roll_button_pressed() -> void:
+	roll_button.disabled = true
+	exit_button.disabled = true
 	if player.get_player_money() < cost:
 		line_edit.text = "Not enough cash!"
 		await get_tree().create_timer(3).timeout
 		line_edit.clear()
+		roll_button.disabled = false
+		exit_button.disabled = false
 		return
 	else:
 		player.set_player_money(player.get_player_money() - cost)
+		
 	
 	var input = line_edit.text
 	var placeholder = "Flip the coin" + " (" + str(cost) + " cash)"

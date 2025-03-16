@@ -3,6 +3,7 @@ extends CenterContainer
 @onready var multiplier_label: Label = $PanelContainer/VBoxContainer/MultiplierLabel
 @onready var roll_button: Button = $PanelContainer/VBoxContainer/RollButton
 @onready var player: Player
+@onready var exit_button: Button = $PanelContainer/VBoxContainer/ExitButton
 
 var rarities = [
 	{"name": "Common", "chance": 70, "multiplier": 0.5},  # Divides reward
@@ -24,10 +25,13 @@ func _ready():
 		return
 
 func _on_roll_button_pressed() -> void:
+	roll_button.disabled = true
+	exit_button.disabled = true
 	if player.get_player_inventory_value() <= 0:
 		multiplier_label.text = "Nothing to sell! Come back when you have money to throw away!"
 		await get_tree().create_timer(3).timeout
 		hide()
+		player.is_in_ui = false
 		return
 	
 	var value = rng.randi_range(1, 100)
