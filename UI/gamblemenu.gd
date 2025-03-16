@@ -31,10 +31,8 @@ func _on_roll_button_pressed() -> void:
 		multiplier_label.text = str(rarities[3]["multiplier"]) + "x"
 	elif value in range(99,101):
 		multiplier_label.text = str(rarities[4]["multiplier"]) + "x"
-
-	print(multiplier_label.text)
-		
-		
+	
+	
 
 
 func _on_exit_button_pressed() -> void:
