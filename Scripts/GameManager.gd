@@ -89,17 +89,20 @@ func check_change_state():
 			if(player.maxMinedDepth >= 10):
 				set_home_state(1)
 		1:
-			if(player.maxMinedDepth >= 20):
+			if(player.maxMinedDepth >= 25):
 				set_home_state(2)
 		2:
 			if(player.maxMinedDepth >= 40):
 				set_home_state(3)
 		3:
-			if(player.maxMinedDepth >= 60):
+			if(player.maxMinedDepth >= 55):
 				set_home_state(4)
 		4:
-			if(player.maxMinedDepth >= 80):
+			if(player.maxMinedDepth >= 70):
 				set_home_state(5)
+		5: 
+			if(player.maxMinedDepth >= 85):
+				pass
 
 func set_home_state(set_state: int):
 	match(set_state):
