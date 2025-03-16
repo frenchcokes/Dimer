@@ -1,0 +1,27 @@
+[
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" :  "Son, I need that gold coin I gave you."
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "What?"
+	},	
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "I don’t have it!"
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "It’s been years!"
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "Unbelievable."
+	}
+]

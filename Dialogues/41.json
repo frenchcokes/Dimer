@@ -1,0 +1,47 @@
+[
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" :  "Wife, I’m running low on cash."
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "I need our wedding ring to sell"
+	},	
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "No you can’t sell our ring!"
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "What is wrong with you?"
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "You need help!"
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "Listen, the ring is nothing compared to the diamonds."
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "Fine!"
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "But if you take this ring we’re through."
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" :  "Give it here."
+	}
+]

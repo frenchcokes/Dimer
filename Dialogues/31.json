@@ -1,0 +1,47 @@
+[
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "I think I will set up camp in the mine and sleep there tonight."
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "I can resume mining as soon as I wake up."
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "What? Why?"
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "You’re barely home as it is."
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" :  "Just trust me."
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "I am so close to getting the diamond!"
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "I think you have a problem."
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" :  "Sure I do."
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "I’ll show you otherwise."
+	}
+]

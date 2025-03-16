@@ -7,11 +7,16 @@
 	{
 		"interlocutor" : 0,
 		"type" : "speech",
-		"text" : "How's the mines!"
+		"text" : "How were the mines!"
 	},
 	{
 		"interlocutor" : 0,
 		"type" : "speech",
 		"text" : "I can't wait to grow up and mine just like you!"
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "Don't worry son, you'll get your chance."
 	}
 ]

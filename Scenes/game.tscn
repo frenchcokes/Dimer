@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://cfw85hdprvh7s"]
 
 [ext_resource type="Script" uid="uid://cj24tq7it5ujr" path="res://Scripts/GameManager.gd" id="1_3dryh"]
-[ext_resource type="PackedScene" uid="uid://b7p4db3j0fh13" path="res://scenes/mine.tscn" id="2_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://b7p4db3j0fh13" path="res://Scenes/mine.tscn" id="2_qxrlw"]
 [ext_resource type="Texture2D" uid="uid://bmriianlrmddv" path="res://Assets/scene.png" id="2_v158k"]
 [ext_resource type="PackedScene" uid="uid://blfd4htad5scq" path="res://Prefabs/player.tscn" id="4_3dryh"]
 [ext_resource type="AudioStream" uid="uid://b66xmxe28c76t" path="res://Assets/Audio/player_walking.mp3" id="4_rku1e"]
@@ -10,8 +10,8 @@
 [ext_resource type="AudioStream" uid="uid://gwkkm8td07va" path="res://Assets/Audio/player_jumping.mp3" id="5_rfjv2"]
 [ext_resource type="Texture2D" uid="uid://c8818mxarxa2r" path="res://Assets/grass block.png" id="6_h4fw4"]
 [ext_resource type="PackedScene" uid="uid://cws0icflqouoa" path="res://Scenes/housetilemap.tscn" id="6_housetilemap"]
-[ext_resource type="PackedScene" path="res://Prefabs/evil_dealer.tscn" id="10_o5yvi"]
-[ext_resource type="PackedScene" path="res://Prefabs/conversation_control.tscn" id="11_rku1e"]
+[ext_resource type="PackedScene" uid="uid://l6l308tp7wes" path="res://Prefabs/evil_dealer.tscn" id="10_o5yvi"]
+[ext_resource type="PackedScene" uid="uid://duenio7lru6gj" path="res://Prefabs/conversation_control.tscn" id="11_rku1e"]
 [ext_resource type="Script" uid="uid://bjtp3akdkx4cx" path="res://Scripts/Interactable2.gd" id="12_nb51f"]
 [ext_resource type="Texture2D" uid="uid://dbrbrrvsp8142" path="res://Assets/wife.png" id="12_rku1e"]
 [ext_resource type="Texture2D" uid="uid://76pip8v43gb8" path="res://Assets/son.png" id="13_1phco"]
@@ -116,14 +116,11 @@ position = Vector2(192, -30)
 
 [node name="Walking" type="AudioStreamPlayer2D" parent="Player"]
 stream = ExtResource("4_rku1e")
-bus = &"SFX"
 
 [node name="Jumping" type="AudioStreamPlayer2D" parent="Player"]
 stream = ExtResource("5_rfjv2")
-bus = &"SFX"
 
 [node name="Mining" type="AudioStreamPlayer2D" parent="Player"]
-bus = &"SFX"
 
 [node name="Mine" parent="." instance=ExtResource("2_qxrlw")]
 
@@ -517,7 +514,6 @@ layer_0/tile_data = PackedInt32Array(-65496, 131073, 9, -327641, 131073, 7, -262
 
 [node name="AudioStreamPlayer-BGMusic" type="AudioStreamPlayer2D" parent="."]
 volume_db = -20.0
-bus = &"Music"
 
 [node name="EvilDealer" parent="." instance=ExtResource("10_o5yvi")]
 position = Vector2(8, -28)

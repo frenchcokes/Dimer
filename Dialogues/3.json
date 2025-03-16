@@ -8,5 +8,10 @@
 		"interlocutor" : 0,
 		"type" : "speech",
 		"text" : "Look what I made for you at school today!"
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "I love it! Thank you."
 	}
 ]

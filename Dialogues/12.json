@@ -2,6 +2,36 @@
 	{
 		"interlocutor" : 0,
 		"type" : "speech",
-		"text" : "Finish me!"
+		"text" : "...and then I said to him, skibidi to.. Oh hey Dad."
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "That's a dumb story. I told you he would come home now!"
+	},
+	{
+		"interlocutor" : 2,
+		"type" : "speech",
+		"text" : "Hey kids, I hope I wasn't out for too long."
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "It’s ok. Can you come to my lacrosse game tomorrow?"
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "What about me! What about my dancing recital next Wednesday?"
+	},
+	{
+		"interlocutor" : 2,
+		"type" : "speech",
+		"text" : "Sorry kids, I've got some serious mining to do"
+	},
+	{
+		"interlocutor" : 2,
+		"type" : "speech",
+		"text" : "Once I'm there, I'll buy you two anything you want."
 	}
 ]

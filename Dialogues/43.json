@@ -1,0 +1,22 @@
+[
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "Daughter, remember that necklace your grandmother gave you?"
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "I need it."
+	},	
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "Fine!"
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "Just take it already and leave."
+	}
+]

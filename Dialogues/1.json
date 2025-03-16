@@ -8,5 +8,10 @@
 		"interlocutor" : 0,
 		"type" : "speech",
 		"text" : "I hope you had a good day at work."
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "Thanks honey."
 	}
 ]

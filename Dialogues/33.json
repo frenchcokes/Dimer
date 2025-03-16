@@ -1,0 +1,27 @@
+[
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "Why do you have to leave?"
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "Daughter, my work is almost done."
+	},	
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "I have to focus now."
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "You understand, right?"
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "..?"
+	}
+]

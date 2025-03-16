@@ -1,0 +1,47 @@
+[
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "Guess what honey!"
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "I hit big!"
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "I won a lot of money from the shop!"
+	},	
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "Congrats honey!"
+	},	
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "I’m so proud of you!"
+	},	
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "How about you stay home longer ton-"
+	},	
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "We are gonna eat good tonight!"
+	},	
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "I’ll even get more toys for the kids."
+	},	
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "Then, I’m heading back in the mine."
+	},	
+]
