@@ -74,7 +74,7 @@ position = Vector2(192, -30)
 [node name="Mine" parent="." instance=ExtResource("2_qxrlw")]
 
 [node name="Shop" parent="." instance=ExtResource("3_wrm1d")]
-position = Vector2(-145, -49)
+position = Vector2(-145, -29)
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(-500, 10)
@@ -345,6 +345,5 @@ layer_0/tile_data = PackedInt32Array(-65496, 131073, 9, -327641, 131073, 7, -262
 
 [node name="EvilDealer" parent="." instance=ExtResource("10_o5yvi")]
 position = Vector2(8, -28)
-scale = Vector2(0.6, 0.6)
 
 [node name="ConversationControl" parent="." instance=ExtResource("11_rku1e")]
