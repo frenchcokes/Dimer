@@ -53,4 +53,7 @@ func evil_dealer_conversation():
 	while get_node("ConversationControl").dialogueRunning:
 		await get_tree().process_frame
 	get_node("EvilDealer").queue_free()
-	
+	var shop_idea = load("res://Scenes/shop.tscn")
+	var shop_instance = shop_idea.instantiate()
+	shop_instance.position = Vector2i(-145,-29)
+	add_child(shop_instance)

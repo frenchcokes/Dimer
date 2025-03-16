@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cfw85hdprvh7s"]
+[gd_scene load_steps=13 format=3 uid="uid://cfw85hdprvh7s"]
 
 [ext_resource type="Script" uid="uid://cj24tq7it5ujr" path="res://Scripts/GameManager.gd" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://b7p4db3j0fh13" path="res://Scenes/mine.tscn" id="2_qxrlw"]
 [ext_resource type="Texture2D" uid="uid://bmriianlrmddv" path="res://Assets/scene.png" id="2_v158k"]
-[ext_resource type="PackedScene" uid="uid://c7ni720nqbgk8" path="res://Scenes/shop.tscn" id="3_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://blfd4htad5scq" path="res://Prefabs/player.tscn" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://lw45o05ehn41" path="res://UI/hud.tscn" id="4_wowpa"]
 [ext_resource type="PackedScene" uid="uid://xer0ddy870ft" path="res://Prefabs/interact_point.tscn" id="5_1l0tm"]
@@ -72,9 +71,6 @@ z_index = 1
 position = Vector2(192, -30)
 
 [node name="Mine" parent="." instance=ExtResource("2_qxrlw")]
-
-[node name="Shop" parent="." instance=ExtResource("3_wrm1d")]
-position = Vector2(-145, -29)
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(-500, 10)
