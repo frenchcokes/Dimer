@@ -1,0 +1,57 @@
+[
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "Good morning, my man! Are you ready for your first day of work at the mine?"
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "Don't worry, you'll get comfortable with it very soon."
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "I'll tell you the basics of mining. No need to panic!"
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "It is easy. I mastered it when I was a kid."
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "Use W, A, and D to move around."
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "Use E to interact."
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "The deeper you are into the mine, the more valuable ores you will find."
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "And eventually, you will reach the bottom - the world's biggest diamond mine!"
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "Every night you can go back to your sweet home"
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "That's the spirit, my lad! Work hard and feed your family!"
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "A whole new life lies ahead!"
+	}
+]

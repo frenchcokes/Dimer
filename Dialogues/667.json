@@ -1,0 +1,47 @@
+[
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "You can always sell your items to me."
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "Minerals, stones, or maybe just some scraps in your house, whatever you want to exchange for money."
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "Before you sell me anything, I'd like to repeat our rules, just to confirm."
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "All the items that you sell me will be sold for their *values*."
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "To translate these *values* into real money, you will be tested on your innate *fortune*."
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "If your *fortune* permits, not only do you get the money that the *values* deserve, but the money can also be *multiplied*..."
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "But, if you are *unfortunate*, you might as well get *nothing*."
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "I know I’m running an unconventional business. Not a lot of businessmen make deals like I do."
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "Trust me, you will like my way better than anything else."
+	}
+]

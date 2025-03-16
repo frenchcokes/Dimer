@@ -1,0 +1,17 @@
+[
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "You are such a lucky man to live around the biggest diamond mine in the world!"
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "My friends in the mining industry have confirmed it."
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" :  "And most importantly, it hasn't been disclosed to the public yet. Not a lot of people know it."
+	}
+]
