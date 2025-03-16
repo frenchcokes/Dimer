@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://lw45o05ehn41"]
+
+[ext_resource type="LabelSettings" uid="uid://c4t3i8uk020dq" path="res://UI/hud.tres" id="1_37p78"]
+[ext_resource type="Script" uid="uid://dohbo624dt7jx" path="res://UI/hud.gd" id="1_bytes"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bytes")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 163.0
+offset_bottom = 82.0
+
+[node name="MoneyCounter" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+text = "Money: "
+label_settings = ExtResource("1_37p78")
+
+[node name="InventoryCounter" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+text = "Inventory Value: "
+label_settings = ExtResource("1_37p78")
+
+[node name="MiningSpeed" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+text = "Mining Speed:"
+label_settings = ExtResource("1_37p78")

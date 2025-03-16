@@ -1,14 +1,18 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://b4ojxa28nkfgw"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://b4ojxa28nkfgw"]
 
 [ext_resource type="StyleBox" uid="uid://blwphlfx0k1ut" path="res://UI/shopmenu_button_stylebox.tres" id="1_06kej"]
 [ext_resource type="StyleBox" uid="uid://0p3buwlbatsu" path="res://UI/shopmenu_styleboxflat.tres" id="1_tq8vb"]
+[ext_resource type="FontFile" uid="uid://1pb2gkpcsneg" path="res://Assets/Fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="2_p4v24"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_06kej"]
 content_margin_bottom = 35.0
 
 [resource]
+Button/fonts/font = ExtResource("2_p4v24")
 Button/styles/normal = ExtResource("1_06kej")
 Label/font_sizes/font_size = 35
+Label/fonts/font = ExtResource("2_p4v24")
 Label/styles/normal = SubResource("StyleBoxEmpty_06kej")
+LineEdit/fonts/font = ExtResource("2_p4v24")
 PanelContainer/styles/panel = ExtResource("1_tq8vb")
 VBoxContainer/constants/separation = 20

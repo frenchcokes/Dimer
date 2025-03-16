@@ -10,6 +10,7 @@ var is_indestructible = false
 
 var block_type: bb_types
 var health = 0
+var value = 0 # Sell value
 
 func set_block_type(the_block_type: bb_types) -> void:
 	self.block_type = the_block_type
@@ -21,14 +22,23 @@ func set_block_type(the_block_type: bb_types) -> void:
 			is_indestructible = true
 		bb_types.GRASS:
 			health = 50
+			value = 1
 		bb_types.DIRT:
 			health = 100
+			value = 2
 		bb_types.STONE:
 			health = 200
+			value = 4
 		bb_types.DIAMOND:
 			health = 400
-		_:
+			value = 100
 			print("ERROR UNKNOWN BLOCK TYPE.")
+			
+func get_block_type() -> bb_types:
+	return self.block_type
+	
+func get_value() -> int:
+	return self.value
 
 func _ready():
 	if not tilemap:
