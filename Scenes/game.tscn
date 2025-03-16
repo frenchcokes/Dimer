@@ -74,6 +74,54 @@ mouse_filter = 2
 color = Color(0.4, 0.54902, 1, 1)
 script = SubResource("GDScript_o5yvi")
 
+[node name="Scene21" type="Sprite2D" parent="Backdrop"]
+position = Vector2(821, 2716)
+texture = ExtResource("2_v158k")
+
+[node name="Scene20" type="Sprite2D" parent="Backdrop"]
+position = Vector2(-153, 2716)
+texture = ExtResource("2_v158k")
+
+[node name="Scene19" type="Sprite2D" parent="Backdrop"]
+position = Vector2(-157, 2395)
+texture = ExtResource("2_v158k")
+
+[node name="Scene18" type="Sprite2D" parent="Backdrop"]
+position = Vector2(824, 2391)
+texture = ExtResource("2_v158k")
+
+[node name="Scene17" type="Sprite2D" parent="Backdrop"]
+position = Vector2(827, 2071)
+texture = ExtResource("2_v158k")
+
+[node name="Scene16" type="Sprite2D" parent="Backdrop"]
+position = Vector2(-161, 2071)
+texture = ExtResource("2_v158k")
+
+[node name="Scene15" type="Sprite2D" parent="Backdrop"]
+position = Vector2(831, 1760)
+texture = ExtResource("2_v158k")
+
+[node name="Scene14" type="Sprite2D" parent="Backdrop"]
+position = Vector2(-166, 1753)
+texture = ExtResource("2_v158k")
+
+[node name="Scene13" type="Sprite2D" parent="Backdrop"]
+position = Vector2(833, 1434)
+texture = ExtResource("2_v158k")
+
+[node name="Scene12" type="Sprite2D" parent="Backdrop"]
+position = Vector2(-175, 1431)
+texture = ExtResource("2_v158k")
+
+[node name="Scene11" type="Sprite2D" parent="Backdrop"]
+position = Vector2(-172, 1115)
+texture = ExtResource("2_v158k")
+
+[node name="Scene10" type="Sprite2D" parent="Backdrop"]
+position = Vector2(840, 1114)
+texture = ExtResource("2_v158k")
+
 [node name="Scene8" type="Sprite2D" parent="Backdrop"]
 position = Vector2(-168, 793)
 texture = ExtResource("2_v158k")
