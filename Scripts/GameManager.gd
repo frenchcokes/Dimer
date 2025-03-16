@@ -17,6 +17,9 @@ func _ready() -> void:
 	
 	setup_interact_points()
 	
+	get_node("EvilDealer").set_callable(eveil_dealer_conversation)
+	get_node("EvilDealer").set_display_text("Introduction")
+	
 	start_day_timer()
 
 func setup_interact_points():
@@ -42,3 +45,9 @@ func end_day():
 func start_mine():
 	start_day_timer()
 	Globals.get_player().global_position = Vector2(0, -30)
+
+func eveil_dealer_conversation():
+	get_node("ConversationControl").conversationNumber = 0
+	get_node("ConversationControl").interlocutors = [get_node("EvilDealer")]
+	get_node("ConversationControl").startConversation()
+	
