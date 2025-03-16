@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://cfw85hdprvh7s"]
 
 [ext_resource type="Script" uid="uid://cj24tq7it5ujr" path="res://Scripts/GameManager.gd" id="1_3dryh"]
-[ext_resource type="PackedScene" uid="uid://b7p4db3j0fh13" path="res://scenes/mine.tscn" id="2_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://b7p4db3j0fh13" path="res://Scenes/mine.tscn" id="2_qxrlw"]
 [ext_resource type="Texture2D" uid="uid://bmriianlrmddv" path="res://Assets/scene.png" id="2_v158k"]
 [ext_resource type="PackedScene" uid="uid://blfd4htad5scq" path="res://Prefabs/player.tscn" id="4_3dryh"]
 [ext_resource type="AudioStream" uid="uid://b66xmxe28c76t" path="res://Assets/Audio/player_walking.mp3" id="4_rku1e"]

@@ -5,6 +5,8 @@ var player_ref
 var game_manager
 var pause_menu = preload("res://UI/pausescreen.tscn")
 var pause_menu_instance = null
+var game_over_menu = preload("res://UI/gamblemenu.tscn")
+var game_over_menu_instance = null
 
 func get_player() -> Player:
 	if(player_ref):
@@ -36,3 +38,14 @@ func display_pause_menu():
 		canvas_layer.add_child(pause_menu_instance)
 	else:
 		pause_menu_instance.show()
+
+func display_game_over():
+	var canvas_layer = get_tree().current_scene.find_child("CanvasLayer", true, false)
+	if not canvas_layer:
+		print("Canvas layer not found.")
+	if not game_over_menu_instance:
+		game_over_menu_instance = game_over_menu.instantiate()
+		canvas_layer.add_child(game_over_menu_instance)
+	else:
+		game_over_menu_instance.show()
+	

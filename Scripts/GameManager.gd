@@ -1,4 +1,5 @@
-class_name GameManager extends Node
+extends Node
+class_name GameManager
 
 @onready var night_time_spawn_point: Node2D = get_node("NightTimeSpawnPoint")
 
@@ -102,7 +103,7 @@ func check_change_state():
 				set_home_state(5)
 		5: 
 			if(player.maxMinedDepth >= 85):
-				pass
+				Globals.display_game_over()
 
 func set_home_state(set_state: int):
 	match(set_state):
