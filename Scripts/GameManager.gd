@@ -1,6 +1,14 @@
 class_name GameManager extends Node
 
 @onready var night_time_spawn_point: Node2D = get_node("NightTimeSpawnPoint")
+@onready var wife: interactable2 = get_node("Wife")
+@onready var son: interactable2 = get_node("Son")
+@onready var daughter: interactable2 = get_node("Daughter")
+@onready var wife_sprite: Sprite2D = wife.get_node("Sprite2D")
+@onready var son_sprite: Sprite2D = son.get_node("Sprite2D")
+@onready var daughter_sprite: Sprite2D = daughter.get_node("Sprite2D")
+
+@onready var dialogue_bubble_prefab: PackedScene = preload("res://Prefabs/dialogue_bubble.tscn")
 
 var day_timer: Timer
 var day_duration: float = 10
@@ -16,6 +24,8 @@ func _ready() -> void:
 	Globals.set_game_manager(self)
 	
 	setup_interact_points()
+	
+	set_home_state(0)
 	
 	get_node("EvilDealer").set_callable(evil_dealer_conversation)
 	get_node("EvilDealer").set_display_text("Press E to start introduction")
@@ -40,8 +50,55 @@ func start_day_timer():
 	day_timer.start(day_duration)
 
 func end_day():
+	check_change_state()
 	Globals.get_player().global_position = night_time_spawn_point.global_position
 
+func check_change_state():
+	var player = Globals.get_player()
+	match(game_state):
+		0:
+			if(player.maxMinedDepth > 10):
+				set_home_state(1)
+			pass
+
+func set_home_state(set_state: int):
+	match(set_state):
+		0:
+			wife.global_position = Vector2(1065, -25)
+			wife_sprite.flip_h = true
+			wife.set_callable(func(): create_chat_interaction(1, [wife]))
+			
+			son.global_position = Vector2(956, -24)
+			son_sprite.flip_h = true
+			son.set_callable(func(): create_chat_interaction(2, [son]))
+			
+			daughter.global_position = Vector2(898, -24)
+			daughter_sprite.flip_h = true
+			daughter.set_callable(func(): create_chat_interaction(3, [daughter]))
+		1:
+			wife.global_position = Vector2(930, -25)
+			wife_sprite.flip_h = true
+			wife.set_callable(func(): create_chat_interaction(11, [wife]))
+			
+			son.global_position = Vector2(850, -24)
+			son_sprite.flip_h = true
+			son.set_callable(func(): create_chat_interaction(12, [son]))
+			
+			daughter.global_position = Vector2(790, -24)
+			daughter_sprite.flip_h = true
+			daughter.set_callable(func(): create_chat_interaction(13, [daughter]))
+		2:
+			pass
+	pass
+
+func create_chat_interaction(conversation_number: int, interlocutors: Array[Node2D]):
+	var conv_control = get_node("ConversationControl")
+	if(conv_control):
+		conv_control.conversationNumber = conversation_number
+		conv_control.interlocutors = interlocutors
+		conv_control.startConversation()
+
+#Interactable callback functions
 func start_mine():
 	start_day_timer()
 	Globals.get_player().global_position = Vector2(0, -30)

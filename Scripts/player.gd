@@ -9,7 +9,7 @@ const interact_indicator_prefab: PackedScene = preload("../Prefabs/Interact_Indi
 @onready var mine_timer: Timer = self.get_node("Timer")
 
 var can_mine: bool = true
-var mine_cooldown_time: float = 0.3
+var mine_cooldown_time: float = 0.1
 
 var player_damage: int = 10
 var speed: int = 200
