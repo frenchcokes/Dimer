@@ -79,6 +79,9 @@ bus = &"SFX"
 stream = ExtResource("5_rfjv2")
 bus = &"SFX"
 
+[node name="Mining" type="AudioStreamPlayer2D" parent="Player"]
+bus = &"SFX"
+
 [node name="Mine" parent="." instance=ExtResource("2_qxrlw")]
 
 [node name="Shop" parent="." instance=ExtResource("3_wrm1d")]

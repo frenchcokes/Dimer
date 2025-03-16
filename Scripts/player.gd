@@ -81,20 +81,6 @@ var woodWalkingSound = [
 		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_wood_004.ogg")
 	]
 	
-# It sounds like mining lol
-var miningStoneSounds = [
-	preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_concrete_000.ogg"),
-	preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_concrete_001.ogg"),
-	preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_concrete_002.ogg"),
-	preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_concrete_003.ogg"),
-	preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_concrete_004.ogg")
-]
-var miningGrassDirtSounds = [
-	preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_grass_000.ogg"),
-	preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_grass_001.ogg"),
-	preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_grass_002.ogg"),
-	preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_grass_003.ogg")
-]
 func _physics_process(delta):	
 	if global_position.x >= 960 and not bSoundChanged:
 		walkingAudio.stop()
