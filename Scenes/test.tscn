@@ -1,17 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvhhgj26jk7wg"]
+[gd_scene load_steps=4 format=3 uid="uid://bvhhgj26jk7wg"]
 
-[ext_resource type="Script" uid="uid://d1ctx63di7iy" path="res://Scripts/player.gd" id="1_8od7v"]
-[ext_resource type="SpriteFrames" uid="uid://cldcio51wkge" path="res://Assets/Animations/player_sprite_frames.tres" id="1_lc1oi"]
-[ext_resource type="PackedScene" uid="uid://d2cc0xp8rxhcg" path="res://Scenes/interacting_component.tscn" id="3_qc4db"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8od7v"]
-size = Vector2(120, 120)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_8od7v"]
-radius = 150.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ys1qc"]
-radius = 59.0
+[ext_resource type="PackedScene" uid="uid://blfd4htad5scq" path="res://Prefabs/player.tscn" id="1_lc1oi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qc4db"]
 size = Vector2(1000, 20)
@@ -52,7 +41,6 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/MiningAreaSensor"]
-position = Vector2(-147, 27)
 shape = SubResource("CircleShape2D_ys1qc")
 
 [node name="Timer" type="Timer" parent="Player"]

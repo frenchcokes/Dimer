@@ -12,8 +12,8 @@ var can_mine: bool = true
 var mine_cooldown_time: float = 0.3
 
 var player_damage: int = 10
-var speed: int = 400
-var jump_speed: int = -600
+var speed: int = 200
+var jump_speed: int = -250
 var money: int = 0
 
 var inventory = {}
@@ -55,7 +55,6 @@ func has_in_inventory(block_type: BreakableBlock.bb_types):
 	return false
 
 func tryMine() -> bool:
-	print("tryMine() called")
 	if(can_mine):
 		can_mine = false
 		mine_timer.start(mine_cooldown_time)
@@ -92,7 +91,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	detect_interact()
-	#check_interact()
+	check_interact()
 
 var closest_area: Area2D = null
 var smallest_distance: float = -1
@@ -118,10 +117,17 @@ func detect_interact():
 	if(closest_area):
 		var area_parent = closest_area.get_parent()
 		interact_indicator = interact_indicator_prefab.instantiate()
+		if(closest_area is interactable2):
+			interact_indicator.get_node("Label").text = closest_area.get_display_text()
+		else:
+			interact_indicator.get_node("Label").text = ""
 		area_parent.add_child(interact_indicator)
 		interact_indicator.global_position = closest_area.global_position + Vector2(0, -10)
 
-#func check_interact():aea))
+func check_interact():
+	if(Input.is_action_just_pressed("select") and closest_area):
+		if(closest_area is interactable2):
+			closest_area.interacted_with()
 
 func is_in_mining_area(theArea) -> bool:
 	var objects_in_area: Array[Area2D] = mining_area_sensor.get_overlapping_areas()
