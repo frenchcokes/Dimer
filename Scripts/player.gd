@@ -147,11 +147,11 @@ func get_player_damage() -> int:
 	
 func set_player_damage(damageIncrement: int) -> void:
 	self.player_damage += damageIncrement
-	emit_signal("stats_updated", money, inventoryValue, player_damage)
+	emit_signal("stats_updated", money, inventoryValue, player_damage, maxMinedDepth)
 	
 func set_player_money(money: float) -> void:
 	self.money = money
-	emit_signal("stats_updated", money, inventoryValue, player_damage)
+	emit_signal("stats_updated", money, inventoryValue, player_damage, maxMinedDepth)
 	
 func clear_player_inventory() -> void:
 	self.inventory.clear()
