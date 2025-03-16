@@ -113,3 +113,6 @@ func is_in_mining_area(theArea) -> bool:
 
 func get_player_damage() -> int:
 	return player_damage
+	
+func set_player_damage(damageIncrement: int) -> void:
+	self.player_damage += damageIncrement
