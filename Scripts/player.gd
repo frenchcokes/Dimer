@@ -105,6 +105,10 @@ func _physics_process(delta):
 	var leftPressed: bool = Input.is_action_pressed("left")
 	var rightPressed: bool = Input.is_action_pressed("right")
 	
+	var escPressed: bool = Input.is_action_just_pressed("pause")
+	if (escPressed):
+		Globals.display_pause_menu()
+	
 	if(leftPressed and rightPressed):
 		velocity.x = 0
 		animated_sprite_2d.play("default")

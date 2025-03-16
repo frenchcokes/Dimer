@@ -52,10 +52,6 @@ func _process(_delta: float) -> void:
 	else:
 		emit_signal("timer_display", "Time Left: " + str(int(round(day_timer.time_left))))
 		update_music_status(music)
-		
-	
-	if(Input.is_action_just_pressed("exit")):
-		get_tree().quit()
 	
 	if player.is_in_ui and not day_timer.is_paused():
 		pause_day_timer()
