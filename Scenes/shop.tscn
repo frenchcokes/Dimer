@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7ni720nqbgk8"]
+
+[ext_resource type="Script" path="res://Scripts/shop.gd" id="1_e7rdd"]
+[ext_resource type="PackedScene" uid="uid://chumpaopg6a25" path="res://Scenes/interactable.tscn" id="2_blqjs"]
+
+[sub_resource type="Gradient" id="Gradient_fgaav"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6lah5"]
+gradient = SubResource("Gradient_fgaav")
+fill_from = Vector2(0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gmb2m"]
+radius = 85.0235
+
+[node name="Shop" type="StaticBody2D"]
+script = ExtResource("1_e7rdd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+texture = SubResource("GradientTexture2D_6lah5")
+
+[node name="Interactable" parent="." instance=ExtResource("2_blqjs")]
+interact_name = "Open Shop"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+shape = SubResource("CircleShape2D_gmb2m")
