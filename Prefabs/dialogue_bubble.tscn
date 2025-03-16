@@ -7,6 +7,8 @@
 default_font = ExtResource("2_idehi")
 default_font_size = 8
 
+[ext_resource type="Script" path="res://Scripts/DialogueBubble.gd" id="1_c42lm"]
+
 [node name="DialogueBubble" type="Control"]
 layout_mode = 3
 anchors_preset = 0

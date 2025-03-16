@@ -1,20 +1,108 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfw85hdprvh7s"]
+[gd_scene load_steps=9 format=3 uid="uid://cfw85hdprvh7s"]
 
-[ext_resource type="PackedScene" uid="uid://bvhhgj26jk7wg" path="res://Scenes/test.tscn" id="1_ebmjs"]
-[ext_resource type="PackedScene" uid="uid://b7p4db3j0fh13" path="res://scenes/mine.tscn" id="2_qxrlw"]
+[ext_resource type="Script" uid="uid://cj24tq7it5ujr" path="res://Scripts/GameManager.gd" id="1_3dryh"]
+[ext_resource type="PackedScene" uid="uid://b7p4db3j0fh13" path="res://Scenes/mine.tscn" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://c7ni720nqbgk8" path="res://Scenes/shop.tscn" id="3_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://cws0icflqouoa" path="res://housetilemap.tscn" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://lw45o05ehn41" path="res://hud.tscn" id="4_wowpa"]
+[ext_resource type="PackedScene" uid="uid://blfd4htad5scq" path="res://Prefabs/player.tscn" id="4_3dryh"]
+[ext_resource type="Script" uid="uid://bjtp3akdkx4cx" path="res://Scenes/Interactable2.gd" id="5_wowpa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wowpa"]
+size = Vector2(1000, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3dryh"]
+size = Vector2(20, 300)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3dryh"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_3dryh")
 
-[node name="Test" parent="." instance=ExtResource("1_ebmjs")]
+[node name="Player" parent="." instance=ExtResource("4_3dryh")]
+position = Vector2(0, -30)
+
+[node name="DayCountdown" type="Label" parent="Player"]
+offset_left = 79.0
+offset_top = -126.0
+offset_right = 365.0
+offset_bottom = -84.0
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 30
+text = "Time left: 0"
+horizontal_alignment = 2
 position = Vector2(-32, 11)
 
-[node name="mine" parent="." instance=ExtResource("2_qxrlw")]
+[node name="Mine" parent="." instance=ExtResource("2_qxrlw")]
 
 [node name="Shop" parent="." instance=ExtResource("3_wrm1d")]
-position = Vector2(324, -56)
+position = Vector2(-144, -37)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(-500, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("RectangleShape2D_wowpa")
+
+[node name="ColorRect" type="ColorRect" parent="Floor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -10.0
+offset_right = 500.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Floor2" type="StaticBody2D" parent="."]
+position = Vector2(820, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+shape = SubResource("RectangleShape2D_wowpa")
+
+[node name="ColorRect" type="ColorRect" parent="Floor2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -10.0
+offset_right = 500.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NightTimeSpawnPoint" type="Node2D" parent="."]
+position = Vector2(1100, -50)
+
+[node name="Wall3" type="StaticBody2D" parent="."]
+position = Vector2(-278, -150)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
+shape = SubResource("RectangleShape2D_3dryh")
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2(853, -150)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+shape = SubResource("RectangleShape2D_3dryh")
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(390, -150)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+shape = SubResource("RectangleShape2D_3dryh")
+
+[node name="MineStartInteract" type="Area2D" parent="."]
+position = Vector2(930, -20)
+script = ExtResource("5_wowpa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MineStartInteract"]
+shape = SubResource("CircleShape2D_3dryh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
