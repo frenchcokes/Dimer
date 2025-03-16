@@ -24,6 +24,12 @@ func _ready():
 		return
 
 func _on_roll_button_pressed() -> void:
+	if player.get_player_inventory_value() <= 0:
+		multiplier_label.text = "Nothing to sell! Come back when you have money to throw away!"
+		await get_tree().create_timer(3).timeout
+		hide()
+		return
+	
 	var value = rng.randi_range(1, 100)
 	multiplier_label.text = "Rolling.."
 	await get_tree().create_timer(2).timeout
