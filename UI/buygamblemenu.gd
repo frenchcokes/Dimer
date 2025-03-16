@@ -22,6 +22,14 @@ func _ready():
 	roll_button.text = placeholder
 
 func _on_roll_button_pressed() -> void:
+	if player.get_player_money() < cost:
+		line_edit.text = "Not enough cash!"
+		await get_tree().create_timer(3).timeout
+		line_edit.clear()
+		return
+	else:
+		player.set_player_money(player.get_player_money() - cost)
+	
 	var input = line_edit.text
 	var placeholder = "Flip the coin" + " (" + str(cost) + " cash)"
 	roll_button.text = placeholder
@@ -32,14 +40,6 @@ func _on_roll_button_pressed() -> void:
 		line_edit.clear()
 		return
 		
-	if player.get_player_money() < cost:
-		line_edit.text = "Not enough cash!"
-		await get_tree().create_timer(3).timeout
-		line_edit.clear()
-		return
-	else:
-		player.set_player_money(player.get_player_money() - cost)
-		
 	# Flip the coin
 	var value = rng.randi_range(0, 1)
 	multiplier_label.text = "Flipping.."
@@ -49,6 +49,10 @@ func _on_roll_button_pressed() -> void:
 	
 	# Display result
 	if input.to_lower() != coin[value]:
+		if (player.get_player_damage() - 1) <= 5:
+			multiplier_label.text = "Your mining speed is " + str(player.get_player_damage()) + ". No further deductions added."
+			await get_tree().create_timer(3).timeout
+			return
 		multiplier_label.text = "You did not win your upgrade. In fact, you lost 1 mining speed!"
 		player.set_player_damage(-1)
 	else:

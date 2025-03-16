@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://db7dagur63dvx"]
 
 [ext_resource type="Script" uid="uid://cyegwcwveejv6" path="res://Scripts/DialogueBubble.gd" id="1_c42lm"]
-[ext_resource type="FontFile" uid="uid://b0i1tcnqdrpf0" path="res://Assets/Fonts/PixelatedElegance/PixelatedEleganceRegular-ovyAA.ttf" id="2_idehi"]
+[ext_resource type="FontFile" uid="uid://bxwyacl03qmnv" path="res://Assets/Fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="2_idehi"]
 
 [sub_resource type="Theme" id="Theme_jl7ae"]
 default_font = ExtResource("2_idehi")
-default_font_size = 8
+default_font_size = 12
 
 [node name="DialogueBubble" type="Control"]
 layout_mode = 3

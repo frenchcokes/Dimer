@@ -8,8 +8,12 @@ const interact_indicator_prefab: PackedScene = preload("../Prefabs/Interact_Indi
 @onready var mining_area_sensor: Area2D = self.get_node("MiningAreaSensor")
 @onready var mine_timer: Timer = self.get_node("Timer")
 
+@onready var walkingAudio: AudioStreamPlayer2D = $Walking
+@onready var jumpingAudio: AudioStreamPlayer2D = $Jumping
+
+
 var can_mine: bool = true
-var mine_cooldown_time: float = 0.3
+var mine_cooldown_time: float = 0.1
 
 var player_damage: int = 10
 var speed: int = 200
@@ -66,7 +70,29 @@ func tryMine() -> bool:
 func timer_cooldown_finished():
 	can_mine = true
 
-func _physics_process(delta):
+var bSoundChanged := false
+var grassWalkingSound = load("res://Assets/Audio/player_walking.mp3")
+var currentWalkingStream = grassWalkingSound
+var woodWalkingSound = [
+		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_wood_000.ogg"),
+		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_wood_001.ogg"),
+		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_wood_002.ogg"),
+		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_wood_003.ogg"),
+		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_wood_004.ogg")
+	]
+	
+func _physics_process(delta):	
+	if global_position.x >= 960 and not bSoundChanged:
+		walkingAudio.stop()
+		var index = randi_range(0, woodWalkingSound.size()-1)
+		currentWalkingStream = woodWalkingSound[index]
+		bSoundChanged = true
+		print("Changing to wood sound")
+	elif global_position.x < 960 and bSoundChanged:
+		walkingAudio.stop()
+		currentWalkingStream = grassWalkingSound
+		bSoundChanged = false
+	
 	if is_in_ui:
 		return
 		
@@ -74,7 +100,7 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("up") and is_on_floor():
 		velocity.y = jump_speed
-
+		jumpingAudio.play()
 	
 	var leftPressed: bool = Input.is_action_pressed("left")
 	var rightPressed: bool = Input.is_action_pressed("right")
@@ -82,22 +108,40 @@ func _physics_process(delta):
 	if(leftPressed and rightPressed):
 		velocity.x = 0
 		animated_sprite_2d.play("default")
+		walkingAudio.stop()
 	elif(leftPressed):
 		velocity.x = -1 * speed
 		animated_sprite_2d.flip_h = true
 		animated_sprite_2d.play("walk")
+		play_walking_audio(currentWalkingStream, delta)
 	elif(rightPressed):
 		velocity.x = 1 * speed
 		animated_sprite_2d.flip_h = false
 		animated_sprite_2d.play("walk")
+		play_walking_audio(currentWalkingStream, delta)
 	else:
 		velocity.x = 0
 		animated_sprite_2d.play("default")
+		walkingAudio.stop()
 
 	move_and_slide()
 	
 	detect_interact()
 	check_interact()
+
+var step_timer = 0.0
+var step_interval = 0.35
+func play_walking_audio(stream, delta):
+	if is_on_floor():
+		step_timer += delta
+		if !walkingAudio.playing and stream == grassWalkingSound:
+			walkingAudio.stream = stream
+			walkingAudio.play()
+		elif !walkingAudio.playing and stream != grassWalkingSound and step_timer >= step_interval:
+			walkingAudio.stream = stream
+			walkingAudio.play()
+			step_timer = 0.0
+			
 
 var closest_area: Area2D = null
 var smallest_distance: float = -1
@@ -147,11 +191,11 @@ func get_player_damage() -> int:
 	
 func set_player_damage(damageIncrement: int) -> void:
 	self.player_damage += damageIncrement
-	emit_signal("stats_updated", money, inventoryValue, player_damage)
+	emit_signal("stats_updated", money, inventoryValue, player_damage, maxMinedDepth)
 	
 func set_player_money(money: float) -> void:
 	self.money = money
-	emit_signal("stats_updated", money, inventoryValue, player_damage)
+	emit_signal("stats_updated", money, inventoryValue, player_damage, maxMinedDepth)
 	
 func clear_player_inventory() -> void:
 	self.inventory.clear()
