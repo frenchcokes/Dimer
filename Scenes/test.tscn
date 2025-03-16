@@ -11,6 +11,7 @@ radius = 50.0
 [node name="Test" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_lc1oi")]
+z_index = 1
 position = Vector2(581, -100)
 
 [node name="Floor" type="StaticBody2D" parent="."]

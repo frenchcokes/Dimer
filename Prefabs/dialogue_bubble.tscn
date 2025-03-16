@@ -1,4 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://db7dagur63dvx"]
+[gd_scene load_steps=4 format=3 uid="uid://db7dagur63dvx"]
+
+[ext_resource type="Script" uid="uid://cyegwcwveejv6" path="res://Scripts/DialogueBubble.gd" id="1_c42lm"]
+[ext_resource type="FontFile" uid="uid://b0i1tcnqdrpf0" path="res://Assets/Fonts/PixelatedElegance/PixelatedEleganceRegular-ovyAA.ttf" id="2_idehi"]
+
+[sub_resource type="Theme" id="Theme_jl7ae"]
+default_font = ExtResource("2_idehi")
+default_font_size = 8
 
 [ext_resource type="Script" path="res://Scripts/DialogueBubble.gd" id="1_c42lm"]
 
@@ -20,4 +27,5 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+theme = SubResource("Theme_jl7ae")
 autowrap_mode = 2
