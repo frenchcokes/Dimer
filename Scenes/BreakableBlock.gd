@@ -28,6 +28,9 @@ func set_block_type(the_block_type: bb_types) -> void:
 			health = 400
 		_:
 			print("ERROR UNKNOWN BLOCK TYPE.")
+			
+func get_block_type() -> bb_types:
+	return self.block_type
 
 func _ready():
 	if not tilemap:

@@ -17,6 +17,8 @@ var jump_speed: int = -600
 
 var inventory = {}
 
+var is_in_ui := false
+
 func _ready() -> void:
 	mine_timer.timeout.connect(timer_cooldown_finished)
 	
@@ -52,6 +54,9 @@ func timer_cooldown_finished():
 	can_mine = true
 
 func _physics_process(delta):
+	if is_in_ui:
+		return
+		
 	velocity.y += gravity * delta
 
 	if Input.is_action_just_pressed("up") and is_on_floor():
@@ -102,9 +107,7 @@ func detect_interact():
 		area_parent.add_child(interact_indicator)
 		interact_indicator.global_position = closest_area.global_position + Vector2(0, -10)
 
-#func check_interact():
-	#if(Input.is_action_just_pressed("select")):
-		#print("Selected object: " + str(closest_area))
+#func check_interact():aea))
 
 func is_in_mining_area(theArea) -> bool:
 	var objects_in_area: Array[Area2D] = mining_area_sensor.get_overlapping_areas()
@@ -115,3 +118,6 @@ func is_in_mining_area(theArea) -> bool:
 
 func get_player_damage() -> int:
 	return player_damage
+	
+func set_player_damage(damageIncrement: int) -> void:
+	self.player_damage += damageIncrement
