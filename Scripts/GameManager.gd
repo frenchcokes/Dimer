@@ -23,8 +23,8 @@ var shop_instance: StaticBody2D
 var day_timer: Timer
 var day_duration: float = 10
 var game_state = 0
-
 signal timer_display(display_string: String)
+var milestones = [10, 25, 40, 55, 70, 85]
 
 func _ready() -> void:
 	day_timer = Timer.new()
@@ -59,8 +59,37 @@ func _process(_delta: float) -> void:
 		pause_day_timer()
 	if not player.is_in_ui and day_timer.is_paused():
 		resume_day_timer()
+		
+	if player.maxMinedDepth >= 10 and 10 in milestones:
+		# notify player
+		# teleport player
+		milestones.erase(10)
+		
+	elif player.maxMinedDepth >= 25 and 25 in milestones:
+		# notify player
+		# teleport player
+		milestones.erase(25)
+		
+	elif player.maxMinedDepth >= 40 and 40 in milestones:
+		# notify player
+		# teleport player
+		milestones.erase(40)
+		
+	elif player.maxMinedDepth >= 55 and 55 in milestones:
+		# notify player
+		# teleport player
+		milestones.erase(55)
+		
+	elif player.maxMinedDepth >= 70 and 70 in milestones:
+		# notify player
+		# teleport player
+		milestones.erase(70)
+		
+	elif player.maxMinedDepth >= 85 and 85 in milestones:
+		# notify player
+		# teleport player
+		milestones.erase(85)
 	
-
 func update_music_status(stream):
 	if bg_music_on:
 		if audio_stream_player_bg_music.stream != stream:
