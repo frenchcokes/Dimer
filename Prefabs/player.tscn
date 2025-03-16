@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d2cc0xp8rxhcg" path="res://Scenes/interacting_component.tscn" id="3_knrd4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8od7v"]
-size = Vector2(120, 120)
+size = Vector2(35, 60)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8od7v"]
 radius = 150.0
@@ -17,13 +17,14 @@ radius = 59.0
 script = ExtResource("1_y5hcb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.125, 0.125)
+scale = Vector2(0.75, 0.75)
 shape = SubResource("RectangleShape2D_8od7v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.125, 0.125)
+scale = Vector2(0.75, 0.75)
 sprite_frames = ExtResource("2_2nftw")
-animation = &"test"
+animation = &"walk"
+frame_progress = 0.632919
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-2, 0)
