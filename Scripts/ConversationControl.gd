@@ -8,6 +8,7 @@ extends Node
 @onready var skippable = true
 @onready var skipping = false
 
+
 #func _ready():
 	#var conversationNumber: int = 0
 	#var interlocutors: Array[Node] = []
@@ -67,8 +68,11 @@ func _input(event):
 			skippable = true
 		
 func startConversation():
+	var player = get_node("../Player")
 	if not dialogueRunning:
+		player.is_in_ui = true
 		dialogueRunning = true
 		var json = readJsonFile(conversationNumber)
 		await executeDialogues(json, interlocutors)
 		dialogueRunning = false
+		player.is_in_ui = false

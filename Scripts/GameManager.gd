@@ -1,6 +1,7 @@
 class_name GameManager extends Node
 
 @onready var night_time_spawn_point: Node2D = get_node("NightTimeSpawnPoint")
+@onready var player: Player = get_node("Player")
 @onready var wife: interactable2 = get_node("Wife")
 @onready var son: interactable2 = get_node("Son")
 @onready var daughter: interactable2 = get_node("Daughter")
@@ -45,9 +46,21 @@ func _process(_delta: float) -> void:
 	
 	if(Input.is_action_just_pressed("exit")):
 		get_tree().quit()
+	
+	if player.is_in_ui and not day_timer.is_paused():
+		pause_day_timer()
+	if not player.is_in_ui and day_timer.is_paused():
+		resume_day_timer()
+	
 
 func start_day_timer():
 	day_timer.start(day_duration)
+
+func pause_day_timer():
+	day_timer.set_paused(true)
+	
+func resume_day_timer():
+	day_timer.set_paused(false)
 
 func end_day():
 	check_change_state()
