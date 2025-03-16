@@ -81,12 +81,18 @@ func _physics_process(delta):
 	
 	if(leftPressed and rightPressed):
 		velocity.x = 0
+		animated_sprite_2d.play("default")
 	elif(leftPressed):
 		velocity.x = -1 * speed
+		animated_sprite_2d.flip_h = true
+		animated_sprite_2d.play("walk")
 	elif(rightPressed):
 		velocity.x = 1 * speed
+		animated_sprite_2d.flip_h = false
+		animated_sprite_2d.play("walk")
 	else:
 		velocity.x = 0
+		animated_sprite_2d.play("default")
 
 	move_and_slide()
 	
