@@ -8,6 +8,10 @@ const interact_indicator_prefab: PackedScene = preload("../Prefabs/Interact_Indi
 @onready var mining_area_sensor: Area2D = self.get_node("MiningAreaSensor")
 @onready var mine_timer: Timer = self.get_node("Timer")
 
+@onready var walkingAudio: AudioStreamPlayer2D = $Walking
+@onready var jumpingAudio: AudioStreamPlayer2D = $Jumping
+
+
 var can_mine: bool = true
 var mine_cooldown_time: float = 0.3
 
@@ -74,6 +78,7 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("up") and is_on_floor():
 		velocity.y = jump_speed
+		jumpingAudio.play()
 
 	
 	var leftPressed: bool = Input.is_action_pressed("left")
@@ -82,22 +87,31 @@ func _physics_process(delta):
 	if(leftPressed and rightPressed):
 		velocity.x = 0
 		animated_sprite_2d.play("default")
+		walkingAudio.stop()
 	elif(leftPressed):
 		velocity.x = -1 * speed
 		animated_sprite_2d.flip_h = true
 		animated_sprite_2d.play("walk")
+		play_walking_audio()
 	elif(rightPressed):
 		velocity.x = 1 * speed
 		animated_sprite_2d.flip_h = false
 		animated_sprite_2d.play("walk")
+		play_walking_audio()
 	else:
 		velocity.x = 0
 		animated_sprite_2d.play("default")
+		walkingAudio.stop()
 
 	move_and_slide()
 	
 	detect_interact()
 	check_interact()
+
+func play_walking_audio():
+	if is_on_floor():
+		if !walkingAudio.playing:
+			walkingAudio.play()
 
 var closest_area: Area2D = null
 var smallest_distance: float = -1
