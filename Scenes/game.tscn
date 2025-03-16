@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cfw85hdprvh7s"]
+[gd_scene load_steps=15 format=3 uid="uid://cfw85hdprvh7s"]
 
 [ext_resource type="Script" uid="uid://cj24tq7it5ujr" path="res://Scripts/GameManager.gd" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://b7p4db3j0fh13" path="res://Scenes/mine.tscn" id="2_qxrlw"]
@@ -11,6 +11,40 @@
 [ext_resource type="PackedScene" uid="uid://cws0icflqouoa" path="res://Scenes/housetilemap.tscn" id="6_housetilemap"]
 [ext_resource type="PackedScene" uid="uid://l6l308tp7wes" path="res://Prefabs/evil_dealer.tscn" id="10_o5yvi"]
 [ext_resource type="PackedScene" uid="uid://duenio7lru6gj" path="res://Prefabs/conversation_control.tscn" id="11_rku1e"]
+
+[sub_resource type="GDScript" id="GDScript_o5yvi"]
+script/source = "extends ColorRect
+
+
+
+var time_of_day = 0.0
+var cycle_duration = 60.0  
+
+
+var color_day = Color(0.53, 0.81, 0.92)  # Sky Blue for day
+var color_night = Color(0.0, 0.0, 0.0)   # Black for night
+var color_dusk = Color(1.0, 0.65, 0.0).lightened(0.2) # Lightened orange for morning
+
+func _process(delta):
+	
+	var time_of_day = Globals.get_game_manager().day_timer
+	var cycle_duration = Globals.get_game_manager().day_duration
+	var t = time_of_day.time_left / cycle_duration
+	update_color(t)
+
+	
+func update_color(t: float):
+	
+	if t > 0 and t < 0.5:
+		color = lerp(color_night,color_dusk, (t) * 2) 
+	elif t > 0.5:
+
+		color = lerp(color_dusk, color_day, (t-0.5) * 2)
+	else:
+	
+		color = color_night
+ 
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wowpa"]
 size = Vector2(1000, 20)
@@ -30,6 +64,7 @@ offset_right = 2436.0
 offset_bottom = 1494.0
 mouse_filter = 2
 color = Color(0.4, 0.54902, 1, 1)
+script = SubResource("GDScript_o5yvi")
 
 [node name="Scene8" type="Sprite2D" parent="Backdrop"]
 position = Vector2(-168, 793)
