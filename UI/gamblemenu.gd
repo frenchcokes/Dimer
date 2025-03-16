@@ -27,17 +27,27 @@ func _on_roll_button_pressed() -> void:
 	var value = rng.randi_range(1, 100)
 	multiplier_label.text = "Rolling.."
 	await get_tree().create_timer(2).timeout
+	var multiplier = 1.0
+	
 	if value in range(1, 70):
-		multiplier_label.text = str(rarities[0]["multiplier"]) + "x"
+		multiplier = rarities[0]["multiplier"]
 	elif value in range(70,90):
-		multiplier_label.text = str(rarities[1]["multiplier"]) + "x"
+		multiplier = rarities[1]["multiplier"]
 	elif value in range(90, 97):
-		multiplier_label.text = str(rarities[2]["multiplier"]) + "x"
+		multiplier = rarities[2]["multiplier"]
 	elif value in range(97,99):
-		multiplier_label.text = str(rarities[3]["multiplier"]) + "x"
+		multiplier = rarities[3]["multiplier"]
 	elif value in range(99,101):
-		multiplier_label.text = str(rarities[4]["multiplier"]) + "x"
+		multiplier = rarities[4]["multiplier"]
+		
+	multiplier_label.text = str(multiplier) + "x"
 	await get_tree().create_timer(2).timeout
+	var finalValue = player.get_player_inventory_value() *  multiplier
+	multiplier_label.text = "You've received a total of: " + str(finalValue)
+	await get_tree().create_timer(2).timeout
+	player.set_player_money(player.get_player_money() + finalValue)
+	player.clear_player_inventory()
+	
 	hide()
 	player.is_in_ui = false
 
