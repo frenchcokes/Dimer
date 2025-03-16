@@ -60,7 +60,7 @@ func mine_block(damage: int):
 		break_block()
 
 func break_block():
-	tilemap.set_cell(0, tilemap.local_to_map(global_position))
+	tilemap.set_cell(0, tilemap.local_to_map(global_position) / 2)
 	queue_free()
 
 func _on_mouse_entered() -> void:

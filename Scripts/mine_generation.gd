@@ -22,7 +22,7 @@ var rng : RandomNumberGenerator
 # Blocks
 var blocks = []
 
-var tilemap_scale = Vector2i(1, 1)
+var tilemap_scale = Vector2i(2, 2)
 
 func _ready():
 	# Generate rng
@@ -46,7 +46,6 @@ func generate_mine():
 	for y in range(mine_h):
 		for x in range(mine_w):
 			var noiseValue : float = noise.get_noise_2d(x, y);
-			
 			# Generate mine border
 			if (x == 0 or x == mine_w-1):
 				tilemap.set_cell(0, Vector2(x, y), source_id, border)
@@ -85,7 +84,8 @@ func generate_mine():
 func generate_breakable_block(x : int, y : int, type: BreakableBlock.bb_types):
 	var block = preload("res://Scenes/breakable_block.tscn").instantiate()
 	block.set_block_type(type)
-	block.position = tilemap.map_to_local(Vector2i(x,y))
+	block.position = tilemap.map_to_local(Vector2i(x, y)) * 2
+	block.scale *= 2
 	block.tilemap = tilemap
 	add_child(block)
 	blocks.append(block)
