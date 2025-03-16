@@ -30,13 +30,13 @@ func _ready() -> void:
 	day_timer.timeout.connect(end_day)
 	day_timer.one_shot = true
 	Globals.set_game_manager(self)
-	
 	setup_interact_points()
+
 	
 	set_home_state(0)
-	
 	get_node("EvilDealer").set_callable(evil_dealer_conversation)
 	get_node("EvilDealer").set_display_text("Press E to start introduction")
+
 	
 	start_day_timer()
 
