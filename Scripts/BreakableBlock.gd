@@ -49,10 +49,11 @@ func _process(_delta: float) -> void:
 		var player = Globals.get_player()
 		if(player.tryMine()):
 			mine_block(player.get_player_damage())
+		# Update player max depth reached
+		player.set_player_maxMinedDepth(ceil(tilemap.local_to_map(global_position).y / 2))
 
 func mine_block(damage: int):
 	self.health -= damage
-	print("Block hit, health: " + str(health))
 
 	add_child(particle_emit.instantiate())
 	if(self.health <= 0):

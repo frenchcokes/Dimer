@@ -4,6 +4,7 @@ extends Control
 @onready var inventory_counter: Label = $VBoxContainer/InventoryCounter
 @onready var mining_speed: Label = $VBoxContainer/MiningSpeed
 @onready var day_countdown: Label = $VBoxContainer2/DayCountdown
+@onready var max_depth_reached: Label = $VBoxContainer/MaxDepthReached
 
 var connected_to_manager = false
 
@@ -15,6 +16,7 @@ func _ready() -> void:
 	money_counter.text = "Money: " + str(player.get_player_money())
 	inventory_counter.text = "Inventory Value: " + str(player.get_player_inventory_value())
 	mining_speed.text = "Mining Speed: " + str(player.get_player_damage())
+	max_depth_reached.text = "Max Depth Reached: " + str(player.maxMinedDepth)
 
 func _process(_delta: float) -> void:
 	if(!connected_to_manager):
@@ -23,11 +25,11 @@ func _process(_delta: float) -> void:
 			connected_to_manager = true
 	
 
-func _on_stats_updated(money, inventoryValue, player_damage):
-	print("stats update()")
+func _on_stats_updated(money, inventoryValue, player_damage, maxMinedDepth):
 	money_counter.text = "Money: " + str(money)
 	inventory_counter.text = "Inventory Value: " + str(inventoryValue)
 	mining_speed.text = "Mining Speed: " + str(player_damage) 
+	max_depth_reached.text = "Max Depth Reached: " + str(maxMinedDepth)
 
 func countdown_updated(display: String):
 	if(day_countdown):
