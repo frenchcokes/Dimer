@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cfw85hdprvh7s"]
+[gd_scene load_steps=10 format=3 uid="uid://cfw85hdprvh7s"]
 
 [ext_resource type="Script" uid="uid://cj24tq7it5ujr" path="res://Scripts/GameManager.gd" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://b7p4db3j0fh13" path="res://Scenes/mine.tscn" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://c7ni720nqbgk8" path="res://Scenes/shop.tscn" id="3_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://blfd4htad5scq" path="res://Prefabs/player.tscn" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://lw45o05ehn41" path="res://UI/hud.tscn" id="4_wowpa"]
-[ext_resource type="Script" uid="uid://bjtp3akdkx4cx" path="res://Scenes/Interactable2.gd" id="5_wowpa"]
+[ext_resource type="PackedScene" uid="uid://xer0ddy870ft" path="res://Prefabs/interact_point.tscn" id="5_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://cws0icflqouoa" path="res://Scenes/housetilemap.tscn" id="6_housetilemap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wowpa"]
@@ -14,23 +14,11 @@ size = Vector2(1000, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3dryh"]
 size = Vector2(20, 300)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3dryh"]
-
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3dryh")
 
 [node name="Player" parent="." instance=ExtResource("4_3dryh")]
 position = Vector2(0, -30)
-
-[node name="DayCountdown" type="Label" parent="Player"]
-offset_left = 79.0
-offset_top = -126.0
-offset_right = 365.0
-offset_bottom = -84.0
-scale = Vector2(0.5, 0.5)
-theme_override_font_sizes/font_size = 30
-text = "Time left: 0"
-horizontal_alignment = 2
 
 [node name="Mine" parent="." instance=ExtResource("2_qxrlw")]
 
@@ -96,12 +84,8 @@ position = Vector2(390, -150)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
 shape = SubResource("RectangleShape2D_3dryh")
 
-[node name="MineStartInteract" type="Area2D" parent="."]
+[node name="MineStartInteract" parent="." instance=ExtResource("5_1l0tm")]
 position = Vector2(930, -20)
-script = ExtResource("5_wowpa")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MineStartInteract"]
-shape = SubResource("CircleShape2D_3dryh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

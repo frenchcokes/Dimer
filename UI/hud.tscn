@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://lw45o05ehn41"]
+[gd_scene load_steps=4 format=3 uid="uid://lw45o05ehn41"]
 
 [ext_resource type="LabelSettings" uid="uid://c4t3i8uk020dq" path="res://UI/hud.tres" id="1_37p78"]
 [ext_resource type="Script" uid="uid://dohbo624dt7jx" path="res://UI/hud.gd" id="1_bytes"]
+[ext_resource type="FontFile" uid="uid://08oa6xyejdem" path="res://Assets/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="3_2o5uh"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -16,8 +17,8 @@ script = ExtResource("1_bytes")
 layout_mode = 1
 offset_left = 32.0
 offset_top = 32.0
-offset_right = 163.0
-offset_bottom = 82.0
+offset_right = 301.0
+offset_bottom = 157.0
 
 [node name="MoneyCounter" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -39,3 +40,22 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 3
 text = "Mining Speed:"
 label_settings = ExtResource("1_37p78")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -301.0
+offset_top = 32.0
+offset_right = -32.0
+offset_bottom = 157.0
+grow_horizontal = 0
+
+[node name="DayCountdown" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2o5uh")
+theme_override_font_sizes/font_size = 30
+text = "Time left: 0"
+label_settings = ExtResource("1_37p78")
+horizontal_alignment = 2
