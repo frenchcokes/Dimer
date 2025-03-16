@@ -1,6 +1,10 @@
 class_name GameManager extends Node
 
 @onready var night_time_spawn_point: Node2D = get_node("NightTimeSpawnPoint")
+@onready var audio_stream_player_bg_music: AudioStreamPlayer2D = $"AudioStreamPlayer-BGMusic"
+var bg_music_on = true
+var music = preload("res://Assets/Audio/game-music-puzzle-strategy-arcade-technology-301226.mp3")
+var nightSFX = preload("res://Assets/Audio/mixkit-night-forest-with-insects-2414.mp3")
 
 var day_timer: Timer
 var day_duration: float = 10
@@ -27,12 +31,24 @@ func setup_interact_points():
 func _process(_delta: float) -> void:
 	if(day_timer.is_stopped()):
 		emit_signal("timer_display", "Night Time")
+		update_music_status(nightSFX)
 	else:
 		emit_signal("timer_display", "Time Left: " + str(int(round(day_timer.time_left))))
+		update_music_status(music)
+		
 	
 	if(Input.is_action_just_pressed("exit")):
 		get_tree().quit()
 
+func update_music_status(stream):
+	if bg_music_on:
+		if audio_stream_player_bg_music.stream != stream:
+			audio_stream_player_bg_music.stop()
+			audio_stream_player_bg_music.stream = stream
+			audio_stream_player_bg_music.play()
+			
+	else:
+		audio_stream_player_bg_music.stop()
 func start_day_timer():
 	day_timer.start(day_duration)
 

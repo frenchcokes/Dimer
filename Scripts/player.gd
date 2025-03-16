@@ -151,7 +151,6 @@ func play_walking_audio(stream, delta):
 		if !walkingAudio.playing and stream == grassWalkingSound:
 			walkingAudio.stream = stream
 			walkingAudio.play()
-			print("Playing grass sound")
 		elif !walkingAudio.playing and stream != grassWalkingSound and step_timer >= step_interval:
 			walkingAudio.stream = stream
 			walkingAudio.play()
