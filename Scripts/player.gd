@@ -70,9 +70,10 @@ func tryMine() -> bool:
 func timer_cooldown_finished():
 	can_mine = true
 
-func _physics_process(delta):	
-	var grassWalkingSound = load("res://Assets/Audio/player_walking.mp3")
-	var woodWalkingSound = [
+var bSoundChanged := false
+var grassWalkingSound = load("res://Assets/Audio/player_walking.mp3")
+var currentWalkingStream = grassWalkingSound
+var woodWalkingSound = [
 		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_wood_000.ogg"),
 		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_wood_001.ogg"),
 		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_wood_002.ogg"),
@@ -80,22 +81,31 @@ func _physics_process(delta):
 		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_wood_004.ogg")
 	]
 	
-	# It sounds like mining lol
-	var miningStoneSounds = [
-		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_concrete_000.ogg"),
-		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_concrete_001.ogg"),
-		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_concrete_002.ogg"),
-		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_concrete_003.ogg"),
-		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_concrete_004.ogg")
-	]
-	var miningGrassDirtSounds = [
-		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_grass_000.ogg"),
-		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_grass_001.ogg"),
-		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_grass_002.ogg"),
-		preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_grass_003.ogg")
-	]
-	
-	var currentWalkingStream = grassWalkingSound
+# It sounds like mining lol
+var miningStoneSounds = [
+	preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_concrete_000.ogg"),
+	preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_concrete_001.ogg"),
+	preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_concrete_002.ogg"),
+	preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_concrete_003.ogg"),
+	preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_concrete_004.ogg")
+]
+var miningGrassDirtSounds = [
+	preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_grass_000.ogg"),
+	preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_grass_001.ogg"),
+	preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_grass_002.ogg"),
+	preload("res://Assets/Audio/kenney_impact-sounds/Audio/footstep_grass_003.ogg")
+]
+func _physics_process(delta):	
+	if global_position.x >= 960 and not bSoundChanged:
+		walkingAudio.stop()
+		var index = randi_range(0, woodWalkingSound.size()-1)
+		currentWalkingStream = woodWalkingSound[index]
+		bSoundChanged = true
+		print("Changing to wood sound")
+	elif global_position.x < 960 and bSoundChanged:
+		walkingAudio.stop()
+		currentWalkingStream = grassWalkingSound
+		bSoundChanged = false
 	
 	if is_in_ui:
 		return
@@ -105,7 +115,6 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("up") and is_on_floor():
 		velocity.y = jump_speed
 		jumpingAudio.play()
-
 	
 	var leftPressed: bool = Input.is_action_pressed("left")
 	var rightPressed: bool = Input.is_action_pressed("right")
@@ -118,12 +127,12 @@ func _physics_process(delta):
 		velocity.x = -1 * speed
 		animated_sprite_2d.flip_h = true
 		animated_sprite_2d.play("walk")
-		play_walking_audio(currentWalkingStream)
+		play_walking_audio(currentWalkingStream, delta)
 	elif(rightPressed):
 		velocity.x = 1 * speed
 		animated_sprite_2d.flip_h = false
 		animated_sprite_2d.play("walk")
-		play_walking_audio(currentWalkingStream)
+		play_walking_audio(currentWalkingStream, delta)
 	else:
 		velocity.x = 0
 		animated_sprite_2d.play("default")
@@ -134,11 +143,20 @@ func _physics_process(delta):
 	detect_interact()
 	check_interact()
 
-func play_walking_audio(stream):
+var step_timer = 0.0
+var step_interval = 0.35
+func play_walking_audio(stream, delta):
 	if is_on_floor():
-		if !walkingAudio.playing:
+		step_timer += delta
+		if !walkingAudio.playing and stream == grassWalkingSound:
 			walkingAudio.stream = stream
 			walkingAudio.play()
+			print("Playing grass sound")
+		elif !walkingAudio.playing and stream != grassWalkingSound and step_timer >= step_interval:
+			walkingAudio.stream = stream
+			walkingAudio.play()
+			step_timer = 0.0
+			
 
 var closest_area: Area2D = null
 var smallest_distance: float = -1
