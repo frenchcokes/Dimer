@@ -19,12 +19,12 @@ script = ExtResource("1_3dryh")
 
 [node name="Player" parent="." instance=ExtResource("4_3dryh")]
 z_index = 1
-position = Vector2(0, -30)
+position = Vector2(192, -30)
 
 [node name="Mine" parent="." instance=ExtResource("2_qxrlw")]
 
 [node name="Shop" parent="." instance=ExtResource("3_wrm1d")]
-position = Vector2(-144, -37)
+position = Vector2(-145, -49)
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(-500, 10)
