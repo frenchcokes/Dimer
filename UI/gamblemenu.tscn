@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5i24s47cng4f"]
 
-[ext_resource type="Script" uid="uid://dpnau6xts6q0e" path="res://UI/gamblemenu.gd" id="1_txbqp"]
+[ext_resource type="Script" path="res://UI/gamblemenu.gd" id="1_txbqp"]
 [ext_resource type="Theme" uid="uid://b4ojxa28nkfgw" path="res://UI/shopmenu_theme.tres" id="2_vbh20"]
 
 [node name="GambleMenu" type="CenterContainer"]
