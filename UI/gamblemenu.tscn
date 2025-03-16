@@ -23,22 +23,17 @@ theme = ExtResource("2_vbh20")
 [node name="SellItemsLabel" type="Label" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_vbh20")
-text = "Sell Items"
+text = "Sell Price Multiplier"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="MultiplierLabel" type="Label" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_vbh20")
 horizontal_alignment = 1
 
-[node name="LineEdit" type="LineEdit" parent="PanelContainer/VBoxContainer"]
-layout_mode = 2
-placeholder_text = "Enter guess (1-20)"
-alignment = 1
-
 [node name="RollButton" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
-text = "Roll Dice"
+text = "Roll Multiplier"
 
 [node name="ExitButton" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
