@@ -1,0 +1,32 @@
+[
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "Hey son, I’m going to be going a way for a while."
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "I’ll be back soon."
+	},	
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "But why?"
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "Can’t you stay?"
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" :  "I’m so close to the diamond, I can smell it!"
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "Stopping now I could lose my chance."
+	},	
+]

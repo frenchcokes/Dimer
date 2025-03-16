@@ -2,6 +2,31 @@
 	{
 		"interlocutor" : 0,
 		"type" : "speech",
-		"text" : "Finish me!"
+		"text" : "Wow, you've been out for a long time."
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "I know, I know."
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "But there's riches at the bottom."
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "Can I take out a loan? With better tools I can get there quicker."
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "What? A loan in this economy?", 
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "If that's what you want, I support you.", 
 	}
 ]

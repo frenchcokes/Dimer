@@ -86,38 +86,70 @@ func check_change_state():
 	var player = Globals.get_player()
 	match(game_state):
 		0:
-			if(player.maxMinedDepth > 10):
+			if(player.maxMinedDepth >= 10):
 				set_home_state(1)
-			pass
+		1:
+			if(player.maxMinedDepth >= 20):
+				set_home_state(2)
+		2:
+			if(player.maxMinedDepth >= 40):
+				set_home_state(3)
+		3:
+			if(player.maxMinedDepth >= 60):
+				set_home_state(4)
+		4:
+			if(player.maxMinedDepth >= 80):
+				set_home_state(5)
 
 func set_home_state(set_state: int):
 	match(set_state):
 		0:
 			wife.global_position = Vector2(1065, -25)
 			wife_sprite.flip_h = true
-			wife.set_callable(func(): create_chat_interaction(1, [wife]))
+			wife.set_callable(func(): create_chat_interaction(1, [wife, Globals.get_player()]))
 			
 			son.global_position = Vector2(956, -24)
 			son_sprite.flip_h = true
-			son.set_callable(func(): create_chat_interaction(2, [son]))
+			son.set_callable(func(): create_chat_interaction(2, [son, Globals.get_player()]))
 			
 			daughter.global_position = Vector2(898, -24)
 			daughter_sprite.flip_h = true
-			daughter.set_callable(func(): create_chat_interaction(3, [daughter]))
+			daughter.set_callable(func(): create_chat_interaction(3, [daughter, Globals.get_player()]))
 		1:
 			wife.global_position = Vector2(930, -25)
 			wife_sprite.flip_h = true
-			wife.set_callable(func(): create_chat_interaction(11, [wife]))
+			wife.set_callable(func(): create_chat_interaction(11, [wife, Globals.get_player()]))
 			
 			son.global_position = Vector2(850, -24)
 			son_sprite.flip_h = true
-			son.set_callable(func(): create_chat_interaction(12, [son]))
+			son.set_callable(func(): create_chat_interaction(12, [son, daughter, Globals.get_player()]))
 			
 			daughter.global_position = Vector2(790, -24)
 			daughter_sprite.flip_h = true
-			daughter.set_callable(func(): create_chat_interaction(13, [daughter]))
+			daughter.set_callable(func(): create_chat_interaction(12, [son, daughter, Globals.get_player()]))
 		2:
-			pass
+			wife.set_callable(func(): create_chat_interaction(21, [wife, Globals.get_player()]))
+			
+			son.set_callable(func(): create_chat_interaction(22, [son, daughter, Globals.get_player()]))
+			
+			daughter.set_callable(func(): create_chat_interaction(22, [son, daughter, Globals.get_player()]))
+		3:
+			wife.set_callable(func(): create_chat_interaction(31, [wife, Globals.get_player()]))
+			
+			son.set_callable(func(): create_chat_interaction(32, [son, Globals.get_player()]))
+			
+			daughter.set_callable(func(): create_chat_interaction(33, [daughter, Globals.get_player()]))
+		4:
+			wife.set_callable(func(): create_chat_interaction(41, [wife, Globals.get_player()]))
+			
+			son.set_callable(func(): create_chat_interaction(42, [son, Globals.get_player()]))
+			
+			daughter.set_callable(func(): create_chat_interaction(43, [daughter, Globals.get_player()]))
+		5:
+			wife.queue_free()
+			son.queue_free()
+			daughter.queue_free()
+			
 	pass
 
 func create_chat_interaction(conversation_number: int, interlocutors: Array[Node2D]):

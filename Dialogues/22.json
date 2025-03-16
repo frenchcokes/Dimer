@@ -1,0 +1,32 @@
+[
+	{
+		"interlocutor" : 2,
+		"type" : "speech",
+		"text" : "Son! Daughter!"
+	},
+	{
+		"interlocutor" : 2,
+		"type" : "speech",
+		"text" : "I’m getting you all new toys."
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "Oh golly gee!"
+	},
+	{
+		"interlocutor" : 0,
+		"type" : "speech",
+		"text" : "Thanks papa!"
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "Yippee!!"
+	},
+	{
+		"interlocutor" : 1,
+		"type" : "speech",
+		"text" : "I can’t wait!"
+	}
+]
