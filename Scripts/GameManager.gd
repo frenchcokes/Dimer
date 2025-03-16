@@ -11,6 +11,7 @@ var nightSFX = preload("res://Assets/Audio/mixkit-night-forest-with-insects-2414
 @onready var wife: interactable2 = get_node("Wife")
 @onready var son: interactable2 = get_node("Son")
 @onready var daughter: interactable2 = get_node("Daughter")
+var shop_instance: StaticBody2D
 @onready var wife_sprite: Sprite2D = wife.get_node("Sprite2D")
 @onready var son_sprite: Sprite2D = son.get_node("Sprite2D")
 @onready var daughter_sprite: Sprite2D = daughter.get_node("Sprite2D")
@@ -143,6 +144,11 @@ func evil_dealer_conversation():
 		await get_tree().process_frame
 	get_node("EvilDealer").queue_free()
 	var shop_idea = load("res://Scenes/shop.tscn")
-	var shop_instance = shop_idea.instantiate()
+	shop_instance = shop_idea.instantiate()
 	shop_instance.position = Vector2i(-145,-29)
 	add_child(shop_instance)
+
+func evil_dealer_intro_sale():
+	get_node("ConversationControl").conversationNumber = 0
+	get_node("ConversationControl").interlocutors = [shop_instance]
+	await get_node("ConversationControl").startConversation()
