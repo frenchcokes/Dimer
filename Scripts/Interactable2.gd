@@ -9,8 +9,8 @@ func _ready() -> void:
 func interacted_with():
 	callable.call()
 
-func set_callable(call: Callable):
-	callable = call
+func set_callable(set_call: Callable):
+	callable = set_call
 
 func get_display_text():
 	return display_text
