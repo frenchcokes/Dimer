@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d1ctx63di7iy" path="res://Scripts/player.gd" id="1_8od7v"]
 [ext_resource type="SpriteFrames" uid="uid://cldcio51wkge" path="res://Assets/Animations/player_sprite_frames.tres" id="1_lc1oi"]
-[ext_resource type="PackedScene" uid="uid://c0uwk5nrbictv" path="res://Scenes/interacting_component.tscn" id="3_qc4db"]
+[ext_resource type="PackedScene" uid="uid://d2cc0xp8rxhcg" path="res://Scenes/interacting_component.tscn" id="3_qc4db"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8od7v"]
 size = Vector2(120, 120)

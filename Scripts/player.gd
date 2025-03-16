@@ -1,8 +1,5 @@
 class_name Player extends CharacterBody2D
 
-
-class_name Player
-
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 const interact_indicator_prefab: PackedScene = preload("../Prefabs/Interact_Indicator.tscn")
 
