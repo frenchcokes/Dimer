@@ -102,9 +102,7 @@ func detect_interact():
 		area_parent.add_child(interact_indicator)
 		interact_indicator.global_position = closest_area.global_position + Vector2(0, -10)
 
-#func check_interact():
-	#if(Input.is_action_just_pressed("select")):
-		#print("Selected object: " + str(closest_area))
+#func check_interact():aea))
 
 func is_in_mining_area(theArea) -> bool:
 	var objects_in_area: Array[Area2D] = mining_area_sensor.get_overlapping_areas()

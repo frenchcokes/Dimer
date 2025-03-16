@@ -1,6 +1,7 @@
 extends CenterContainer
 
 @onready var multiplier_label: Label = $PanelContainer/VBoxContainer/MultiplierLabel
+@onready var roll_button: Button = $PanelContainer/VBoxContainer/RollButton
 
 var rarities = [
 	{"name": "Common", "chance": 70, "multiplier": 0.5},  # Divides reward
@@ -31,9 +32,7 @@ func _on_roll_button_pressed() -> void:
 		multiplier_label.text = str(rarities[3]["multiplier"]) + "x"
 	elif value in range(99,101):
 		multiplier_label.text = str(rarities[4]["multiplier"]) + "x"
-	
-	
-
+	await get_tree().create_timer(1).timeout
 
 func _on_exit_button_pressed() -> void:
 	hide()
