@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b7p4db3j0fh13" path="res://Scenes/mine.tscn" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://c7ni720nqbgk8" path="res://Scenes/shop.tscn" id="3_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://blfd4htad5scq" path="res://Prefabs/player.tscn" id="4_3dryh"]
-[ext_resource type="Script" uid="uid://c7cxilhulef7y" path="res://Scripts/returnToMine.gd" id="5_wowpa"]
+[ext_resource type="Script" uid="uid://bjtp3akdkx4cx" path="res://Scenes/Interactable2.gd" id="5_wowpa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wowpa"]
 size = Vector2(1000, 20)
@@ -94,11 +94,11 @@ position = Vector2(390, -150)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
 shape = SubResource("RectangleShape2D_3dryh")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="MineStartInteract" type="Area2D" parent="."]
 position = Vector2(930, -20)
 script = ExtResource("5_wowpa")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MineStartInteract"]
 shape = SubResource("CircleShape2D_3dryh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

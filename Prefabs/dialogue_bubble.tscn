@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://db7dagur63dvx"]
 
-[ext_resource type="Script" uid="uid://bke3fj7xxw3fe" path="res://Scripts/DialogueBubble.gd" id="1_c42lm"]
+[ext_resource type="Script" path="res://Scripts/DialogueBubble.gd" id="1_c42lm"]
 
 [node name="DialogueBubble" type="Control"]
 layout_mode = 3

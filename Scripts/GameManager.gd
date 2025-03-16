@@ -14,6 +14,9 @@ func _ready() -> void:
 	day_timer.one_shot = true
 	Globals.set_game_manager(self)
 	
+	get_node("MineStartInteract").set_callable(start_mine)
+	get_node("MineStartInteract").set_display_text("Return to the mines")
+	
 	start_day_timer()
 
 func _process(_delta: float) -> void:

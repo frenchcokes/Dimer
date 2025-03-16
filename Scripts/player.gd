@@ -99,6 +99,10 @@ func detect_interact():
 	if(closest_area):
 		var area_parent = closest_area.get_parent()
 		interact_indicator = interact_indicator_prefab.instantiate()
+		if(closest_area is interactable2):
+			interact_indicator.get_node("Label").text = closest_area.get_display_text()
+		else:
+			interact_indicator.get_node("Label").text = ""
 		area_parent.add_child(interact_indicator)
 		interact_indicator.global_position = closest_area.global_position + Vector2(0, -10)
 
