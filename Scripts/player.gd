@@ -13,9 +13,9 @@ const interact_indicator_prefab: PackedScene = preload("../Prefabs/Interact_Indi
 
 
 var can_mine: bool = true
-var mine_cooldown_time: float = 0.1
+var mine_cooldown_time: float = 0.2
 
-var player_damage: int = 100
+var player_damage: int = 10
 var speed: int = 200
 var jump_speed: int = -250
 var money: float = 0.0
@@ -30,7 +30,6 @@ signal stats_updated(money, inventoryValue, player_damage, maxMinedDepth)
 
 func _ready() -> void:
 	mine_timer.timeout.connect(timer_cooldown_finished)
-	
 	Globals.set_player(self)
 
 func add_to_inventory(block_type: BreakableBlock.bb_types):
@@ -206,7 +205,6 @@ func clear_player_inventory() -> void:
 	self.inventory.clear()
 	self.inventoryValue = 0.0
 	emit_signal("stats_updated", money, inventoryValue, player_damage, maxMinedDepth)
-	
 
 func get_player_money() -> int:
 	return self.money

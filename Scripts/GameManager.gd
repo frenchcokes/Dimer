@@ -19,9 +19,8 @@ var shop_instance: StaticBody2D
 
 @onready var dialogue_bubble_prefab: PackedScene = preload("res://Prefabs/dialogue_bubble.tscn")
 
-
 var day_timer: Timer
-var day_duration: float = 10
+var day_duration: float = 180
 var game_state = 0
 signal timer_display(display_string: String)
 var milestones = [10, 25, 40, 55, 70, 85]
@@ -38,7 +37,6 @@ func _ready() -> void:
 	set_home_state(0)
 	get_node("EvilDealer").set_callable(evil_dealer_conversation)
 	get_node("EvilDealer").set_display_text("Press E to start introduction")
-
 	
 	start_day_timer()
 
@@ -48,47 +46,59 @@ func setup_interact_points():
 	mine_start_interact.set_display_text("Return to the mines")
 
 func _process(_delta: float) -> void:
-	if(day_timer.is_stopped()):
-		emit_signal("timer_display", "Night Time")
-		update_music_status(nightSFX)
-	else:
-		emit_signal("timer_display", "Time Left: " + str(int(round(day_timer.time_left))))
-		update_music_status(music)
-	
 	if player.is_in_ui and not day_timer.is_paused():
 		pause_day_timer()
 	if not player.is_in_ui and day_timer.is_paused():
 		resume_day_timer()
 		
 	if player.maxMinedDepth >= 10 and 10 in milestones:
-		# notify player
-		# teleport player
+		check_change_state()
+		Globals.get_player().global_position = night_time_spawn_point.global_position
+		Globals.get_hud().showMessage()
+		day_timer.stop()
 		milestones.erase(10)
 		
 	elif player.maxMinedDepth >= 25 and 25 in milestones:
-		# notify player
-		# teleport player
+		check_change_state()
+		Globals.get_player().global_position = night_time_spawn_point.global_position
+		Globals.get_hud().showMessage()
+		day_timer.stop()
 		milestones.erase(25)
 		
 	elif player.maxMinedDepth >= 40 and 40 in milestones:
-		# notify player
-		# teleport player
+		check_change_state()
+		Globals.get_player().global_position = night_time_spawn_point.global_position
+		Globals.get_hud().showMessage()
+		day_timer.stop()
 		milestones.erase(40)
 		
 	elif player.maxMinedDepth >= 55 and 55 in milestones:
-		# notify player
-		# teleport player
+		check_change_state()
+		Globals.get_player().global_position = night_time_spawn_point.global_position
+		Globals.get_hud().showMessage()
+		day_timer.stop()
 		milestones.erase(55)
 		
 	elif player.maxMinedDepth >= 70 and 70 in milestones:
-		# notify player
-		# teleport player
+		check_change_state()
+		Globals.get_player().global_position = night_time_spawn_point.global_position
+		Globals.get_hud().showMessage()
+		day_timer.stop()
 		milestones.erase(70)
 		
 	elif player.maxMinedDepth >= 85 and 85 in milestones:
-		# notify player
-		# teleport player
+		check_change_state()
+		Globals.get_player().global_position = night_time_spawn_point.global_position
+		Globals.get_hud().showMessage()
+		day_timer.stop()
 		milestones.erase(85)
+	
+	if(day_timer.is_stopped()):
+		emit_signal("timer_display", "Night Time")
+		update_music_status(nightSFX)
+	else:
+		emit_signal("timer_display", "Time Left: " + str(int(round(day_timer.time_left))))
+		update_music_status(music)
 	
 func update_music_status(stream):
 	if bg_music_on:
@@ -99,7 +109,9 @@ func update_music_status(stream):
 			
 	else:
 		audio_stream_player_bg_music.stop()
+		
 func start_day_timer():
+	day_timer.set_paused(false)
 	day_timer.start(day_duration)
 
 func pause_day_timer():
@@ -114,6 +126,7 @@ func end_day():
 
 func check_change_state():
 	var player = Globals.get_player()
+	print(player.maxMinedDepth)
 	match(game_state):
 		0:
 			if(player.maxMinedDepth >= 10):

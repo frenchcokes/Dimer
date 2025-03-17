@@ -3,6 +3,7 @@ extends Node
 
 var player_ref
 var game_manager
+var hud
 var pause_menu = preload("res://UI/pausescreen.tscn")
 var pause_menu_instance = null
 var game_over_menu = preload("res://UI/gamblemenu.tscn")
@@ -17,6 +18,12 @@ func get_player() -> Player:
 
 func set_player(the_player: Player):
 	player_ref = the_player
+
+func set_hud(the_hud: Control):
+	hud = the_hud
+
+func get_hud():
+	return hud
 
 func get_game_manager() -> GameManager:
 	if(game_manager):

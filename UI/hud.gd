@@ -5,6 +5,7 @@ extends Control
 @onready var mining_speed: Label = $VBoxContainer/MiningSpeed
 @onready var day_countdown: Label = $VBoxContainer2/DayCountdown
 @onready var max_depth_reached: Label = $VBoxContainer/MaxDepthReached
+@onready var notify_label: Label = self.get_node("NotifyLabel")
 
 var connected_to_manager = false
 
@@ -17,6 +18,7 @@ func _ready() -> void:
 	inventory_counter.text = "Inventory Value: " + str(player.get_player_inventory_value())
 	mining_speed.text = "Mining Speed: " + str(player.get_player_damage())
 	max_depth_reached.text = "Max Depth Reached: " + str(player.maxMinedDepth)
+	Globals.set_hud(self)
 
 func _process(_delta: float) -> void:
 	if(!connected_to_manager):
@@ -34,3 +36,8 @@ func _on_stats_updated(money, inventoryValue, player_damage, maxMinedDepth):
 func countdown_updated(display: String):
 	if(day_countdown):
 		day_countdown.text = display
+
+func showMessage(the_message: String = "Something has changed at home!"):
+	notify_label.text = the_message
+	await get_tree().create_timer(2).timeout
+	notify_label.text = ""
